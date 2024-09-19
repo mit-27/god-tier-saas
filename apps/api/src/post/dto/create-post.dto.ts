@@ -1,10 +1,10 @@
-import { IsString } from 'class-validator';
+// import { IsString } from 'class-validator';
 
-export class CreatePostDto {
+// export class CreatePostDto {
 
 
-    @IsString()
-    title: string;
-    @IsString()
-    body: string;
-}
+//     @IsString()
+//     title: string;
+//     @IsString()
+//     body: string;
+// }

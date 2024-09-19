@@ -34,17 +34,17 @@ export const postContract = c.router(
             },
             summary: 'Get All Posts',
         },
-        getPost: {
-            method: 'GET',
-            path: '/posts/:id',
-            pathParams: z.object({
-                id: z.string().uuid(),
-            }),
-            responses: {
-                200: PostSchema,
-                400: ErrorSchema,
-            },
-            summary: 'Get a post by id',
-        }
+        // getPost: {
+        //     method: 'GET',
+        //     path: '/posts/:id',
+        //     pathParams: z.object({
+        //         id: z.string().uuid(),
+        //     }),
+        //     responses: {
+        //         200: PostSchema,
+        //         400: ErrorSchema,
+        //     },
+        //     summary: 'Get a post by id',
+        // }
     }
 )
