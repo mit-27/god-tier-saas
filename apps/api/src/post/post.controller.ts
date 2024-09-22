@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Req, HttpCode, HttpStatus, Body } from '@nestjs/common';
+import { Controller, Get, Post, Req, HttpCode, HttpStatus, Body, UseGuards } from '@nestjs/common';
 import { PostService } from './post.service';
 // import { CreatePostDto } from './dto/create-post.dto';
 import { contract } from '@template/shared';
 import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
+import { AuthGuard } from 'src/core/auth/guards/auth.guard';
 
 
 @Controller()
@@ -10,6 +11,8 @@ export class PostController {
 
     constructor(private readonly postService: PostService) { }
 
+
+    @UseGuards(AuthGuard)
     @TsRestHandler(contract.posts)
     async postHandler() {
         return tsRestHandler(contract.posts, {
