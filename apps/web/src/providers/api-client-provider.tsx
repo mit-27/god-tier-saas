@@ -1,6 +1,6 @@
 "use client";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import {api} from './api-client'
+import {api} from '../lib/api-client'
 // import {QueryClient,QueryClientProvider} from '@ts-rest/react-query/tanstack'
 import React from 'react';
 
