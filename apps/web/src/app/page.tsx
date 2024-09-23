@@ -7,7 +7,7 @@ import { dehydrate, HydrationBoundary, QueryClient} from '@tanstack/react-query'
 
 export default async function Home() {
 
-  const tsrQueryClient = api.initQueryClient(new QueryClient()); // <-- or pass a QueryClient from anywhere depending on your needs
+  const tsrQueryClient = api.initQueryClient(new QueryClient()); 
 
   await tsrQueryClient.posts.getPosts.prefetchQuery({ queryKey: ['posts'] });
 
