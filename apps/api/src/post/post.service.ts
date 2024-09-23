@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { DRIZZLE } from 'src/drizzle/drizzle.module';
 import { DrizzleDB } from 'src/drizzle/types/drizzle';
 // import { CreatePostDto } from './dto/create-post.dto';
-import { posts } from 'src/drizzle/schema';
+import { post } from 'src/drizzle/schema';
 
 @Injectable()
 export class PostService {
@@ -10,11 +10,11 @@ export class PostService {
     constructor(@Inject(DRIZZLE) private readonly db: DrizzleDB) { }
 
     async getPosts() {
-        return this.db.select().from(posts);  
+        return this.db.select().from(post);
     }
 
-    async addPost(post: { title: string, body: string }) {
-        const allPosts = await this.db.insert(posts).values(post).returning();
+    async addPost(newPost: { title: string, body: string }) {
+        const allPosts = await this.db.insert(post).values(newPost).returning();
         return allPosts[0];
     }
 
