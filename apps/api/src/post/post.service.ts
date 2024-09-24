@@ -1,8 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { DRIZZLE } from 'src/drizzle/drizzle.module';
-import { DrizzleDB } from 'src/drizzle/types/drizzle';
-// import { CreatePostDto } from './dto/create-post.dto';
-import { post } from 'src/drizzle/schema';
+import { DRIZZLE } from '@/drizzle/drizzle.module';
+import { post, DrizzleDB } from '@template/shared';
 
 @Injectable()
 export class PostService {

@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { OAuth2Client, TokenPayload } from 'google-auth-library';
-import { User, user } from '@/drizzle/schema'
+// import { User, user } from '@/drizzle/schema'
 import { DRIZZLE } from '@/drizzle/drizzle.module';
-import { DrizzleDB } from '@/drizzle/types/drizzle';
+import { DrizzleDB, user, NewUser } from '@template/shared';
 import { eq } from 'drizzle-orm';
 
 @Injectable()
@@ -47,7 +47,7 @@ export class AuthService {
 
     }
 
-    async login(loggedInUser: User) {
+    async login(loggedInUser: NewUser) {
 
         // check if user exists
         try {
