@@ -1,5 +1,5 @@
 "use client";
-import Posts from "@/components/posts";
+import Posts from "@/components/Posts/PostList";
 import { Button } from "@/components/ui/button";
 import { api } from "@/lib/api-client";
 import { dehydrate, HydrationBoundary, QueryClient} from '@tanstack/react-query';
@@ -7,9 +7,9 @@ import { dehydrate, HydrationBoundary, QueryClient} from '@tanstack/react-query'
 
 export default async function Home() {
 
-  const tsrQueryClient = api.initQueryClient(new QueryClient()); 
+  // const tsrQueryClient = api.initQueryClient(new QueryClient()); 
 
-  await tsrQueryClient.posts.getPosts.prefetchQuery({ queryKey: ['posts'] });
+  // await tsrQueryClient.posts.getPosts.prefetchQuery({ queryKey: ['posts'] });
 
 
 
@@ -22,9 +22,9 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <HydrationBoundary state={dehydrate(tsrQueryClient)}>
+      {/* <HydrationBoundary state={dehydrate(tsrQueryClient)}>
         <Posts/>
-      </HydrationBoundary>
+      </HydrationBoundary> */}
       {/* <Button>Hello</Button> */}
       {/* <p>{isLoading ? 'Loading...' : JSON.stringify(data?.body)}</p> */}
 

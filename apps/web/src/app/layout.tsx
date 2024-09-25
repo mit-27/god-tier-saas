@@ -5,6 +5,7 @@ import "./globals.css";
 import { Providers } from "@/providers/api-client-provider";
 import SessionProvider from "@/providers/SessionProvider";
 import { auth } from "@/lib/auth";
+import { Toaster } from 'sonner';
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default async function RootLayout({
             {children}
           </Providers>
         </SessionProvider>
+        <Toaster richColors/>
       </body>
     </html>
   );

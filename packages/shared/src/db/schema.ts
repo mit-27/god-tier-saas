@@ -3,6 +3,7 @@ import { pgTable, serial, text, uuid, varchar, boolean, timestamp } from "drizzl
 export const post = pgTable("posts", {
     id: uuid("id").primaryKey().defaultRandom(),
     title: varchar("title").notNull(),
+    createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
     body: text("body").notNull(),
 });
 

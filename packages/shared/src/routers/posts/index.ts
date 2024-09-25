@@ -20,7 +20,7 @@ export const postContract = c.router(
                 200: PostSchema,
                 400: ErrorSchema,
             },
-            body: PostSchema.omit({ id: true }),
+            body: PostSchema.omit({ id: true, createdAt: true }),
             summary: 'Create a post',
         },
         getPosts: {
