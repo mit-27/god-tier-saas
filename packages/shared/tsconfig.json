@@ -7,11 +7,14 @@
         "skipLibCheck": true,
         "isolatedModules": true,
         "preserveWatchOutput": true,
-        "rootDir": "src",
+        "target": "ES6",
+        // "rootDir": "./",
+        // "moduleResolution": "node",
         "outDir": "dist",
         // "types": ["node"],
         "declaration": true,
     },
-    "exclude": ["node_modules", "./dist/**/*"]
+    "exclude": ["node_modules", "./dist/**/*"],
+    "include": ["src/**/*","drizzle.config.ts"]
     
 }

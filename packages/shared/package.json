@@ -1,19 +1,30 @@
 {
     "name": "@template/shared",
     "version": "0.0.1",
-    "types": "./dist/index.d.ts",
-    "exports": {
-        ".": "./dist/index.js"
-    },
+    "files": [
+        "dist/**/*"
+    ],
     "dependencies": {
         "@ts-rest/core": "^3.51.0",
+        "dotenv": "^16.4.5",
+        "drizzle-orm": "^0.33.0",
+        "drizzle-zod": "^0.5.1",
+        "pg": "^8.13.0",
+        "postgres": "^3.4.4",
         "typescript": "^5",
         "zod": "^3.23.8"
     },
     "description": "Ts-rest shared contract ",
-    "main": "index.js",
+    "main": "dist/src/index.js",
     "scripts": {
         "build": "tsc",
+        "db:generate": "npx drizzle-kit generate",
+        "db:migrate": "npx drizzle-kit migrate",
         "dev": "tsc -w"
+    },
+    "devDependencies": {
+        "@types/node": "^22.6.1",
+        "@types/pg": "^8.11.10",
+        "drizzle-kit": "^0.24.2"
     }
 }

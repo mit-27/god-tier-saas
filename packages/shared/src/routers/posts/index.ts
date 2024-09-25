@@ -1,13 +1,11 @@
 import { initContract } from '@ts-rest/core';
+import { createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
+import { post } from '../../db/schema';
 
 const c = initContract();
 
-const PostSchema = z.object({
-    id: z.string(),
-    title: z.string(),
-    body: z.string(),
-});
+const PostSchema = createSelectSchema(post);
 
 const ErrorSchema = z.object({
     message: z.string(),
@@ -19,7 +17,7 @@ export const postContract = c.router(
             method: 'POST',
             path: '/posts',
             responses: {
-                201: PostSchema,
+                200: PostSchema,
                 400: ErrorSchema,
             },
             body: PostSchema.omit({ id: true }),
@@ -34,17 +32,30 @@ export const postContract = c.router(
             },
             summary: 'Get All Posts',
         },
-        // getPost: {
-        //     method: 'GET',
-        //     path: '/posts/:id',
-        //     pathParams: z.object({
-        //         id: z.string().uuid(),
-        //     }),
-        //     responses: {
-        //         200: PostSchema,
-        //         400: ErrorSchema,
-        //     },
-        //     summary: 'Get a post by id',
-        // }
+        getPost: {
+            method: 'GET',
+            path: '/posts/:id',
+            pathParams: z.object({
+                id: z.string().uuid(),
+            }),
+            responses: {
+                200: PostSchema,
+                400: ErrorSchema,
+            },
+            summary: 'Get a post by id',
+        },
+        updatePost: {
+            method: 'PUT',
+            path: '/posts/:id',
+            pathParams: z.object({
+                id: z.string().uuid(),
+            }),
+            body: PostSchema.omit({ id: true }),
+            responses: {
+                200: PostSchema,
+                400: ErrorSchema,
+            },
+            summary: 'Update a post by id',
+        }
     }
 )

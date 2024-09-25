@@ -4,6 +4,8 @@
   "scripts": {
     "build": "turbo build",
     "dev": "concurrently \"turbo run dev --filter=@template/web\" \"turbo run dev --filter=@template/api\"",
+    "dev:shared": "turbo run dev --filter=@template/shared",
+
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },

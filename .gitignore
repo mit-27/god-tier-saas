@@ -20,12 +20,12 @@ coverage
 
 # Vercel
 .vercel
-
 # Build Outputs
 .next/
 out/
 build
 dist
+drizzle
 
 #DB
 pg_data/

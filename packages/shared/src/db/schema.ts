@@ -1,7 +1,5 @@
 import { pgTable, serial, text, uuid, varchar, boolean, timestamp } from "drizzle-orm/pg-core";
 
-
-
 export const post = pgTable("posts", {
     id: uuid("id").primaryKey().defaultRandom(),
     title: varchar("title").notNull(),
@@ -18,4 +16,3 @@ export const user = pgTable("users", {
     updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow()
 })
 
-export type User = typeof user.$inferSelect
