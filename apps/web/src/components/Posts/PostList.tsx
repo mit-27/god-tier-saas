@@ -45,7 +45,7 @@ const Posts = () => {
           <div className="container mx-auto pb-16"> {/* Added bottom padding */}
             <div className="flex flex-col gap-5 justify-center items-center">
               {data?.body.map((card) => (
-                <PostCard key={card.id} title={card.title} body={card.body} createdAt={card.createdAt} />
+                <PostCard key={card.id} title={card.title} body={card.body} createdAt={card.createdAt} id={card.id} />
               ))}
             </div>
           </div>

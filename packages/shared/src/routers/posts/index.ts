@@ -56,6 +56,19 @@ export const postContract = c.router(
                 400: ErrorSchema,
             },
             summary: 'Update a post by id',
+        },
+        deletePost: {
+            method: 'DELETE',
+            path: '/posts/:id',
+            pathParams: z.object({
+                id: z.string().uuid(),
+            }),
+            body: z.any(),
+            responses: {
+                200: PostSchema,
+                400: ErrorSchema,
+            },
+            summary: 'Delete a post by id',
         }
     }
 )

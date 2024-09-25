@@ -68,8 +68,22 @@ export class PostController {
                     body: updatedPost
                 }
 
-            }
-        });
+            },
+            deletePost: async ({ params }) => {
+                const deletedPost = await this.postService.deletePost(params.id);
+                if (!deletedPost) {
+                    return {
+                        status: 400,
+                        body: { message: "Failed to delete post" }
+                    }
+                }
+                return {
+                    status: 200,
+                    body: deletedPost
+                }
+            },
+
+        })
 
     }
 

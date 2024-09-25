@@ -10,8 +10,6 @@ import { z } from "zod"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { api } from "@/lib/api-client";
 import { toast } from "sonner";
-import {create} from 'mutative'
-import { set } from "mutative/dist/utils/draft.js";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -34,7 +32,9 @@ const CreatePost = () => {
   })
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const {mutate}  = api.posts.createPost.useMutation({
-    onMutate: (data) => {
+    onMutate: async(data) => {
+      // get current posts, so we can reset back to it if the mutation fails
+      const previousData = queryClient.posts.getPosts.getQueryData(['posts']);
 
       const optimisticPost = {
         ...data.body,
@@ -42,6 +42,7 @@ const CreatePost = () => {
         id: crypto.randomUUID(),
       }
 
+     // optimistically update the cache with the new post
       queryClient.posts.getPosts.setQueryData(['posts'], (oldData) => {
 
         if(oldData?.status === 200) {
@@ -53,38 +54,15 @@ const CreatePost = () => {
         return oldData;
       });
 
-      return {optimisticPost}
-    },
-    onSuccess(data, _variables, {optimisticPost}) {
-      toast.success("Post created successfully");
-      const addedPost = data.body;
-      queryClient.posts.getPosts.setQueryData(['posts'], (oldData) => {
-        if(oldData?.status === 200) {
-          return {
-            ...oldData,
-            body: create(oldData?.body, (draftObj) => {
-              const optimisticPostIndex = draftObj.findIndex((post) => post.id === optimisticPost.id);
-              oldData.body[optimisticPostIndex] = addedPost;
-            })
-          }
-        }
-        return oldData;
-      }); 
+      return {previousData}
     },
     onError(error, _variables, context) {
       toast.error("Failed to create post");
-      queryClient.posts.getPosts.setQueryData(['posts'], (oldData) => {
-        if(oldData?.status === 200) {
-          return {
-            ...oldData,
-            body: create(oldData?.body, (draftObj) => {
-              const optimisticPostIndex = draftObj.findIndex((post) => post.id === context?.optimisticPost.id);
-              oldData.body.splice(optimisticPostIndex, 1);
-            })
-          }
-        }
-        return oldData;
-      });
+      queryClient.posts.getPosts.setQueryData(['posts'],context?.previousData);
+    },
+    onSettled(data, _variables, context) {
+      // trigger a refetch regardless of it the mutation was successful or not
+      queryClient.refetchQueries({queryKey: ['posts']});
     }
   });
 
@@ -95,8 +73,15 @@ const CreatePost = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values)
-    mutate({body: values});
+    mutate({body: values},
+      {
+        onSuccess() {
+          toast.success("Post created successfully");
+        },
+      }
+    );
     setIsDialogOpen(false);
+    form.reset();
   }
   
   return (
