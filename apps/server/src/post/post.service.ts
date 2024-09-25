@@ -27,6 +27,11 @@ export class PostService {
         return updatedPost[0];
     }
 
+    async deletePost(id: string) {
+        const deletedPost = await this.db.delete(post).where(eq(post.id, id)).returning();
+        return deletedPost[0];
+    }
+
 
 
 }
