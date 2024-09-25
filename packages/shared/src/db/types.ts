@@ -2,6 +2,7 @@ import { InferSelectModel, InferInsertModel } from 'drizzle-orm';
 import { post, user } from './schema';
 import * as schema from './schema';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
+
 // import { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 
 export type DrizzleDB = NodePgDatabase<typeof schema>;

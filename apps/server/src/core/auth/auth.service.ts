@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { OAuth2Client, TokenPayload } from 'google-auth-library';
 // import { User, user } from '@/drizzle/schema'
-import { DRIZZLE } from '@/drizzle/drizzle.module';
+import { DRIZZLE } from '@/core/drizzle/drizzle.module';
 import { DrizzleDB, user, NewUser } from '@template/shared';
 import { eq } from 'drizzle-orm';
 

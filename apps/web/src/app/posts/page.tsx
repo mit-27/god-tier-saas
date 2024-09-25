@@ -10,7 +10,8 @@ const CheckPosts = () => {
     queryKey: ['posts'],
     retryOnMount: false,
     refetchOnMount: false,
-    refetchOnWindowFocus: false
+    refetchOnWindowFocus: false,
+    retry:0
   });
 
   return (

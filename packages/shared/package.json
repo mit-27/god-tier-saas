@@ -8,6 +8,7 @@
         "@ts-rest/core": "^3.51.0",
         "dotenv": "^16.4.5",
         "drizzle-orm": "^0.33.0",
+        "drizzle-zod": "^0.5.1",
         "pg": "^8.13.0",
         "postgres": "^3.4.4",
         "typescript": "^5",
