@@ -21,7 +21,7 @@
         "db:generate": "npx drizzle-kit generate",
         "db:migrate": "npx drizzle-kit migrate",
         "db:push" : "pnpm db:generate && pnpm db:migrate",
-        "dev": "tsc -w"
+        "dev": "pnpm db:push && tsc -w"
     },
     "devDependencies": {
         "@types/node": "^22.6.1",
