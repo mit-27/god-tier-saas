@@ -1,0 +1,19 @@
+# run it from the repo root directory
+# docker build -f ./apps/web/Dockerfile.dev .
+FROM node:20-alpine AS base
+# =======================================================================
+FROM base AS builder
+RUN apk add --no-cache libc6-compat
+RUN apk update
+
+# Set pnpm
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+RUN corepack enable
+
+WORKDIR /app
+RUN pnpm add -g turbo@2.1.2
+
+# Start the Webapp
+CMD cd apps/web && pnpm install && pnpm run dev

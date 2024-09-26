@@ -29,7 +29,7 @@ drizzle
 
 #DB
 pg_data/
-
+.pnpm-store
 
 # Debug
 npm-debug.log*

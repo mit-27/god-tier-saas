@@ -1,0 +1,13 @@
+pg_data/
+
+node_modules/
+
+apps/web/node_modules
+apps/web/dist
+apps/web/.next
+
+apps/server/node_modules
+apps/server/dist
+
+packages/shared/node_modules
+packages/shared/dist

@@ -20,6 +20,7 @@
         "build": "tsc",
         "db:generate": "npx drizzle-kit generate",
         "db:migrate": "npx drizzle-kit migrate",
+        "db:push" : "pnpm db:generate && pnpm db:migrate",
         "dev": "tsc -w"
     },
     "devDependencies": {
