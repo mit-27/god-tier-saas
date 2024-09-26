@@ -1,5 +1,4 @@
 "use client";
-import { initQueryClient, } from '@ts-rest/react-query';
 import { contract } from '@template/shared';
 import { initTsrReactQuery } from '@ts-rest/react-query/v5';
 import Cookies from 'js-cookie';

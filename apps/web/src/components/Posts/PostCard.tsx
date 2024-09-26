@@ -5,7 +5,7 @@ import { Pencil, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { api } from '@/lib/api-client';
 import { toast } from 'sonner';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -58,11 +58,11 @@ const PostCard = (props : PropsType) => {
             });
             return {previousData}
         },
-        onError(error, _variables, context) {
+        onError(_, _variables, context) {
             toast.error("Failed to delete post");
             queryClient.posts.getPosts.setQueryData(['posts'],context?.previousData);
         },
-        onSettled(data,error, _variables, context) {
+        onSettled(_data,error, _variables, _context) {
             if(!error)
             {
                 toast.error("Post deleted successfully",{

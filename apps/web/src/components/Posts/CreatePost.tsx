@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -60,7 +60,7 @@ const CreatePost = () => {
       toast.error("Failed to create post");
       queryClient.posts.getPosts.setQueryData(['posts'],context?.previousData);
     },
-    onSettled(data, _variables, context) {
+    onSettled() {
       // trigger a refetch regardless of it the mutation was successful or not
       queryClient.refetchQueries({queryKey: ['posts']});
     }
