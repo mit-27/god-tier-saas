@@ -19,7 +19,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 accessToken: token?.accessToken
             }
         },
-        async signIn({ account, user, profile, email }) {
+        async signIn({ account, user, profile }) {
             // try {
             const token = account?.id_token;
 
@@ -59,7 +59,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         },
     },
     events: {
-        signOut: async (user) => {
+        signOut: async () => {
             cookies().set("access_token", "");
         }
     }

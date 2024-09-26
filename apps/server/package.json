@@ -1,5 +1,5 @@
 {
-  "name": "@template/api",
+  "name": "@template/server",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -9,7 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "dev": "nest start --watch",
+    "dev": "(cd node_modules/@template/shared && pnpm run build) && nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",

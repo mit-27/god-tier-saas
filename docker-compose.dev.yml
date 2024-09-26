@@ -1,0 +1,82 @@
+name: god-tier-saas-template
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16.1
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  db:
+    build:
+      context: ./
+      dockerfile: ./packages/shared/Dockerfile.dev
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    networks:
+      - backend
+  
+  server:
+    build:
+      context: ./
+      dockerfile: ./apps/server/Dockerfile.dev
+    ports:
+      - 3000:3000
+    environment:
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 10s
+      timeout: 5s
+      retries: 1000 # Try launching the API service as long as possible. Required for other services to start
+    networks:
+      - backend
+
+  web:
+    build:
+      context: ./
+      dockerfile: ./apps/web/Dockerfile.dev
+    ports:
+      - 8090:8090
+    environment:
+      NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL}
+      AUTH_SECRET: ${AUTH_SECRET}
+      AUTH_GOOGLE_ID: ${GOOGLE_CLIENT_ID}
+      AUTH_GOOGLE_SECRET: ${AUTH_GOOGLE_SECRET}
+    restart: unless-stopped
+    networks:
+      - backend
+    volumes:
+      - .:/app
+    depends_on:
+      server:
+        condition: service_healthy
+   
+networks:
+  backend:
