@@ -40,8 +40,13 @@ const Posts = () => {
           <Skeleton className=" flex w-[100%] h-[200px] rounded-2xl" />
         </div>
       ) : (
-        <>
-        <div className="min-h-screen py-8 relative">
+        isError ? (
+          <div className="flex flex-col gap-5 justify-center items-center">
+            <p>Error fetching posts</p>
+          </div>
+        ) : (
+          <>
+          <div className="min-h-screen py-8 relative">
           <div className="container mx-auto pb-16"> {/* Added bottom padding */}
             <div className="flex flex-col gap-5 justify-center items-center">
               {data?.body.map((card) => (
@@ -53,7 +58,8 @@ const Posts = () => {
             <div className="fixed bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none" />
           )}
         </div>
-        </>
+          </>
+        )
       )}
     </div>
   )
