@@ -44,6 +44,8 @@ services:
     environment:
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?schema=public
+      POSTHOG_KEY: ${POSTHOG_KEY}
+      POSTHOG_HOST: ${POSTHOG_HOST}
     depends_on:
       postgres:
         condition: service_healthy
@@ -69,6 +71,8 @@ services:
       AUTH_SECRET: ${AUTH_SECRET}
       AUTH_GOOGLE_ID: ${GOOGLE_CLIENT_ID}
       AUTH_GOOGLE_SECRET: ${AUTH_GOOGLE_SECRET}
+      NEXT_PUBLIC_POSTHOG_KEY: ${POSTHOG_KEY}
+      NEXT_PUBLIC_POSTHOG_HOST: ${POSTHOG_HOST}
     restart: unless-stopped
     networks:
       - backend

@@ -26,6 +26,7 @@
     "mutative": "^1.0.10",
     "next": "14.2.12",
     "next-auth": "5.0.0-beta.21",
+    "posthog-js": "^1.165.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",

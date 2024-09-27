@@ -59,6 +59,9 @@ importers:
       pino-pretty:
         specifier: ^11.2.2
         version: 11.2.2
+      posthog-node:
+        specifier: ^4.2.0
+        version: 4.2.0
       reflect-metadata:
         specifier: ^0.2.0
         version: 0.2.2
@@ -192,6 +195,9 @@ importers:
       next-auth:
         specifier: 5.0.0-beta.21
         version: 5.0.0-beta.21(next@14.2.12)(react@18.3.1)
+      posthog-js:
+        specifier: ^1.165.0
+        version: 1.165.0
       react:
         specifier: ^18
         version: 18.3.1
@@ -4630,6 +4636,10 @@ packages:
       bser: 2.1.1
     dev: true
 
+  /fflate@0.4.8:
+    resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==}
+    dev: false
+
   /figures@3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==}
     engines: {node: '>=8'}
@@ -6949,6 +6959,24 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
+  /posthog-js@1.165.0:
+    resolution: {integrity: sha512-rUfRJobvOz3Q9Er+zwb32Eq2qs+ToBe/B4k4IoKzmyszI7240Rf4xVWRB0ky8LvmdZfCeYX5knS2Uv3pnn/d5A==}
+    dependencies:
+      fflate: 0.4.8
+      preact: 10.24.1
+      web-vitals: 4.2.3
+    dev: false
+
+  /posthog-node@4.2.0:
+    resolution: {integrity: sha512-hgyCYMyzMvuF3qWMw6JvS8gT55v7Mtp5wKWcnDrw+nu39D0Tk9BXD7I0LOBp0lGlHEPaXCEVYUtviNKrhMALGA==}
+    engines: {node: '>=15.0.0'}
+    dependencies:
+      axios: 1.7.7
+      rusha: 0.8.14
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /preact-render-to-string@5.2.3(preact@10.11.3):
     resolution: {integrity: sha512-aPDxUn5o3GhWdtJtW0svRC2SS/l8D9MAgo2+AWml+BhDImb27ALf04Q2d+AHqUUOc6RdSXFIBVa2gxzgMKgtZA==}
     peerDependencies:
@@ -6960,6 +6988,10 @@ packages:
 
   /preact@10.11.3:
     resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
+    dev: false
+
+  /preact@10.24.1:
+    resolution: {integrity: sha512-PnBAwFI3Yjxxcxw75n6VId/5TFxNW/81zexzWD9jn1+eSrOP84NdsS38H5IkF/UH3frqRPT+MvuCoVHjTDTnDw==}
     dev: false
 
   /prelude-ls@1.2.1:
@@ -7331,6 +7363,10 @@ packages:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
       queue-microtask: 1.2.3
+
+  /rusha@0.8.14:
+    resolution: {integrity: sha512-cLgakCUf6PedEu15t8kbsjnwIFFR2D4RfL+W3iWFJ4iac7z4B0ZI8fxy4R3J956kAI68HclCFGL8MPoUVC3qVA==}
+    dev: false
 
   /rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
@@ -8347,6 +8383,10 @@ packages:
     dependencies:
       defaults: 1.0.4
     dev: true
+
+  /web-vitals@4.2.3:
+    resolution: {integrity: sha512-/CFAm1mNxSmOj6i0Co+iGFJ58OS4NRGVP+AWS/l509uIK5a1bSoIVaHz/ZumpHTfHSZBpgrJ+wjfpAOrTHok5Q==}
+    dev: false
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
