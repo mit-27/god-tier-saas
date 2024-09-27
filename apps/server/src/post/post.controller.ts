@@ -12,7 +12,7 @@ export class PostController {
     constructor(private readonly postService: PostService) { }
 
 
-    // @UseGuards(AuthGuard)
+    @UseGuards(AuthGuard)
     @TsRestHandler(contract.posts)
     async postHandler() {
         return tsRestHandler(contract.posts, {

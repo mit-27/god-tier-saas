@@ -44,17 +44,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 return false;
             }
 
-
-
-
-
-            // cookies().set("access_token", token);
-
-            console.log(`Attempting to login at: ${process.env.NEXT_PUBLIC_SERVER_URL}/auth/login`);
-            console.log('User:', user);
-            console.log('Profile:', profile);
-            console.log('Access Token:', token);
-
             return true;
         },
     },
