@@ -19,7 +19,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { marketingPagesConfig } from "@/config/Navconfig";
+import { mainPageConfig } from "@/config/Navconfig";
 import { socialsConfig } from "@/config/SocialButtonconfig";
 import { useWindowScroll } from "@/hooks/use-window-scroll";
 import { cn } from "@/lib/utils";
@@ -42,12 +42,12 @@ const MobileNav = () => {
     <Sheet open={open} onOpenChange={(value : boolean) => setOpen(value)}>
       <SheetTrigger asChild>
         <Button
-          size="icon"
+          // size="icon"
           variant="outline"
-          className="rounded-full"
+          className="rounded-full text-sm h-7"
           aria-label="menu"
         >
-          <Menu className="h-6 w-6" />
+          <Menu className="" />
         </Button>
       </SheetTrigger>
       <SheetContent side="top" className={cn("flex flex-col")}>
@@ -56,7 +56,7 @@ const MobileNav = () => {
         </SheetHeader>
         <div className="flex flex-1 flex-col justify-between gap-8">
           <ul className="grid gap-1">
-            {marketingPagesConfig.map(({ href, title, icon, children } : Page) => {
+            {mainPageConfig.map(({ href, title, icon, children } : Page) => {
               if (!children) {
                 const isExternal = href.startsWith("http");
                 const _externalProps = isExternal ? { target: "_blank" } : {};
@@ -114,7 +114,7 @@ const MobileNav = () => {
                 </li>
               ))}
             </ul>
-            <Button variant="outline" />
+            <Button variant={"shine"}>Log in</Button>
           </div>
         </div>
       </SheetContent>
@@ -139,7 +139,7 @@ const ListItem = React.forwardRef<
         {...props}
       >
         <Icon className="h-4 w-4" />
-        <div className="font-medium text-sm leading-none">{title}</div>
+        <div className="font-medium text-sm text-[13px] leading-none">{title}</div>
       </Link>
     </li>
   );

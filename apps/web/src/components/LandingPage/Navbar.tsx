@@ -12,7 +12,7 @@ import {
 import * as React from "react";
 import { Icons, type ValidIcon } from "@/components/ui/icons";
 import Link, { type LinkProps } from "next/link";
-import { marketingPagesConfig } from "@/config/Navconfig";
+import { mainPageConfig } from "@/config/Navconfig";
 import { usePathname } from "next/navigation";
 import MobileNav from "./MobileNav";
 import { Button } from "../ui/button";
@@ -24,9 +24,10 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 
 const navItemStyles = cva(
   [
-    "block rounded-md px-3 py-1.5 text-sm text-gray-900/60 hover:text-gray-900/80",
+    "block rounded-md px-3 text-sm text-gray-900/60 hover:text-gray-900/80",
     "dark:text-white/70 dark:hover:text-white",
     "transition-colors ease-out",
+    "text-[13px]"
   ],
   {
     variants: {
@@ -45,27 +46,22 @@ const Navbar = () => {
     <header className="sticky top-3 z-10 flex items-center justify-between gap-8 rounded-2xl border px-1.5 py-1.5 backdrop-blur-lg md:top-6 mx-auto w-full max-w-4xl">
         <div className="flex items-center gap-6">
             <div className="ml-3 flex items-center gap-3">
-                <p>GTS</p>
+                <p className="text-[13px] font-semibold text-[#b59b5a]">GTS</p>
             </div>
             <div
             className={cn(
                 "mx-auto hidden items-center justify-center border border-transparent md:flex md:gap-1",
               )}
             >
-            <NavigationMenu>
-            <NavigationMenuList>
-              {marketingPagesConfig.map((page) => {
+            <NavigationMenuPrimitive.Root >
+            <NavigationMenuPrimitive.List className="relative flex flex-row gap-4 px-2 py-0.5">
+              {mainPageConfig.map((page) => {
                 const { href, title, children } = page;
                 if (!children) {
                   return (
                     <NavigationMenuItem key={title}>
                       <Link href={href} legacyBehavior passHref >
                         <NavigationMenuLink
-                          // className={cn(
-                          //   navigationMenuTriggerStyle(),
-                          //   "h-9 rounded-full bg-transparent hover:bg-accent/50",
-                          //   { "text-foreground": href === pathname },
-                          // )}
                           className={navItemStyles({ isActive: href === pathname })}
                         >
                           {title}
@@ -76,54 +72,18 @@ const Navbar = () => {
                 }
 
                 return (
-                  // <NavigationMenuItem key={href}>
-                  //   <NavigationMenuTrigger 
-                  //   className="h-9 rounded-full bg-transparent hover:bg-transparent data-[state=open]:text-accent-foreground"
-                    
-                  //   >
-                  //     {title}
-                  //   </NavigationMenuTrigger>
-                  //   <NavigationMenuContent>
-                  //     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  //       {children?.map((item) => {
-                  //         const isExternal = item.href.startsWith("http");
-                  //         const _externalProps = isExternal
-                  //           ? { target: "_blank" }
-                  //           : {};
-                  //         const _isActive = pathname.startsWith(item.href);
-                  //         return (
-                  //           <ListItem
-                  //             key={item.title}
-                  //             title={item.title}
-                  //             href={item.href}
-                  //             icon={item.icon}
-                  //           >
-                  //             {item.description}
-                  //           </ListItem>
-                  //         );
-                  //       })}
-                  //     </ul>
-                  //   </NavigationMenuContent>
-                  // </NavigationMenuItem>
                   <NavigationMenuPrimitive.Item key={href}>
-                    <WithTrigger trigger={true}>
-                    {/* <NavigationMenuPrimitive.Trigger asChild></NavigationMenuPrimitive.Trigger> */}
-                      <button className={navItemStyles({ isActive: pathname.startsWith(href) })}>
-                            {title}
-                      </button>
-                      {/* <Link href={href} legacyBehavior passHref >
-                        <NavigationMenuPrimitive.Link
-                          className={navItemStyles({ isActive: pathname.startsWith(href) })}
-                        >
-                          {title}
-                        </NavigationMenuPrimitive.Link>
-                      </Link> */}
-                    </WithTrigger>
+                    {/* <WithTrigger trigger={true}> */}
+                    <NavigationMenuPrimitive.Trigger asChild>
+                        <button className={navItemStyles({ isActive: pathname.startsWith(href) })}>
+                              {title}
+                        </button>
+                    </NavigationMenuPrimitive.Trigger>
+                   
                     <NavigationMenuPrimitive.Content className="data-[motion=from-start]:animate-enter-from-left data-[motion=from-end]:animate-enter-from-right data-[motion=to-start]:animate-exit-to-left data-[motion=to-end]:animate-exit-to-right absolute left-0 top-0 border-0">
+                    
                     <ul 
                     className="grid w-[400px] mt-2 gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]"
-                    // className="grid w-[400px] mt-2 gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] relative origin-[top_center] justify-start overflow-hidden rounded-[20px] border border-gray-200 bg-white shadow-md dark:border-white/[0.15] dark:bg-black transition-[width,height] duration-300"
-
                     >
                          {children?.map((item) => {
                           const isExternal = item.href.startsWith("http");
@@ -148,7 +108,7 @@ const Navbar = () => {
                   
                 );
               })}
-            </NavigationMenuList>
+            </NavigationMenuPrimitive.List>
             <div className="absolute left-1/2 top-full mt-3 -translate-x-1/2">
                 <NavigationMenuPrimitive.Viewport
                   className={cn(
@@ -158,14 +118,14 @@ const Navbar = () => {
                   )}
                 />
             </div>
-          </NavigationMenu>
+          </NavigationMenuPrimitive.Root>
             </div>
         </div>
         <div className="flex items-center justify-end gap-3">
         <div className="block md:hidden">
           <MobileNav />
         </div>
-        <Button>Login</Button>
+        <Button className="h-7 px-2 py-1 text-xs hidden md:block" variant={"shine"}>Log in</Button>
       </div>
     </header>
   )
@@ -185,7 +145,7 @@ const ListItem = React.forwardRef<
         <Link
           ref={ref}
           className={cn(
-            "flex select-none gap-3 space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "flex select-none gap-3 space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-900/70 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}
