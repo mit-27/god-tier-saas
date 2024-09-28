@@ -6,6 +6,7 @@ import { Providers } from "@/providers/api-client-provider";
 import SessionProvider from "@/providers/SessionProvider";
 import { auth } from "@/lib/auth";
 import { Toaster } from 'sonner';
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -31,11 +32,17 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
-        <SessionProvider session={session}>
-          <Providers>
-            {children}
-          </Providers>
-        </SessionProvider>
+        <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        >
+          <SessionProvider session={session}>
+            <Providers>
+              {children}
+            </Providers>
+          </SessionProvider>
+        </ThemeProvider>
+        
         <Toaster richColors/>
       </body>
     </html>
