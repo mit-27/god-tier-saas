@@ -7,8 +7,10 @@ export default async function Home() {
 
   return (
     <Background>
+      <div className="min-h-screen">
       <Navbar/>
       <Hero/>
+      </div>
     </Background> 
   );
 }
