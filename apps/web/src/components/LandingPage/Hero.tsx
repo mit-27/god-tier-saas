@@ -7,11 +7,13 @@ import AnimatedShinyText from "../ui/animated-shiny-text";
 import { LinkPreview } from "../ui/link-preview";
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { HeroVideoDialog } from "../ui/hero-video-dialog";
+import Title from "../ui/Title";
+import Subtitle from "../ui/Subtitle";
 
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-8 p-4 md:p-8">
+    <>
         <div className="mt-10 grid grid-cols-1 md:mt-20">
         <div className="flex flex-col items-start gap-6 px-7 pb-8 text-center md:items-center md:px-10">
               <Link
@@ -26,29 +28,26 @@ const Hero = () => {
                 </AnimatedShinyText>
               </Link>
               <div className="relative flex flex-col gap-4 md:items-center lg:flex-row">
-                  <h1
-                      className={cn(
-                        "text-black dark:text-white",
-                        "relative mx-0 max-w-[43.5rem]  pt-5  md:mx-auto md:px-4 md:py-2",
-                        "text-balance text-left font-semibold tracking-tighter md:text-center",
-                        "text-5xl sm:text-7xl md:text-7xl lg:text-7xl"
-                      )}
-                    >
-                      Build the next Scalable Infrastructure 
-                </h1>
+                  <Title>
+                    Build the next Scalable Infrastructure 
+                  </Title>
               </div>
-              <p className="max-w-2xl text-balance text-left text-base tracking-tight text-black dark:font-medium dark:text-neutral-400 md:text-center md:text-lg ">
-                A SaaS Kit offering end-to-end type safety with{" "} 
-                <LinkPreview url="https://ts-rest.com/">ts-rest</LinkPreview>{" "} 
-                between <LinkPreview url="https://nextjs.org/">Next.js</LinkPreview> and{" "} 
-                <LinkPreview url="https://nestjs.com/">Nest.js</LinkPreview>,{" "} 
-                along with integrated services like{" "} 
-                <LinkPreview url="https://authjs.dev/">AuthJS</LinkPreview> for authentication,{" "}
-                <LinkPreview url="https://posthog.com/">PostHog</LinkPreview> for analytics, and{" "}
-                <LinkPreview url="https://orm.drizzle.team/">Drizzle ORM</LinkPreview> with PostgreSQL for database management.
-                <br />
-                Perfect to build scalable SaaS applications.
-              </p>
+              
+              {/* <p className="max-w-2xl text-balance text-left text-base tracking-tight text-black dark:font-medium dark:text-neutral-400 md:text-center md:text-lg "> */}
+              <Subtitle>
+                  A SaaS Kit offering end-to-end type safety with{" "} 
+                  <LinkPreview url="https://ts-rest.com/">ts-rest</LinkPreview>{" "} 
+                  between <LinkPreview url="https://nextjs.org/">Next.js</LinkPreview> and{" "} 
+                  <LinkPreview url="https://nestjs.com/">Nest.js</LinkPreview>,{" "} 
+                  along with integrated services like{" "} 
+                  <LinkPreview url="https://authjs.dev/">AuthJS</LinkPreview> for authentication,{" "}
+                  <LinkPreview url="https://posthog.com/">PostHog</LinkPreview> for analytics, and{" "}
+                  <LinkPreview url="https://orm.drizzle.team/">Drizzle ORM</LinkPreview> with PostgreSQL for database management.
+                  <br />
+                  Perfect to build scalable SaaS applications.
+              </Subtitle>
+                
+              {/* </p> */}
 
               <div className="mx-0 flex w-full max-w-full flex-col gap-4 py-1 sm:max-w-lg sm:flex-row md:mx-auto">
                 <div className="flex w-full flex-col gap-2 sm:flex-row sm:gap-4">
@@ -88,7 +87,7 @@ const Hero = () => {
         </div>
 
         {/* Video Dialog */}
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto mt-5 max-w-4xl">
           <HeroVideoDialog
             className="dark:hidden block"
             animationStyle="from-center"
@@ -103,10 +102,8 @@ const Hero = () => {
             thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
             thumbnailAlt="Hero Video"
           />
-    </div>
-        
-        
-    </div>
+        </div> 
+    </>
   )
 }
 
