@@ -18,6 +18,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.0",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@tabler/icons-react": "^3.19.0",
     "@tanstack/react-query": "5",
     "@tanstack/react-query-devtools": "^5.56.2",
     "@template/shared": "workspace:*",
@@ -47,9 +48,11 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8",
     "eslint-config-next": "14.2.12",
     "postcss": "^8",
+    "react-syntax-highlighter": "^15.5.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

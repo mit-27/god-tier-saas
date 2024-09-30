@@ -11,6 +11,11 @@ const config: Config = {
 		extend: {
 
 			keyframes: {
+				"border-beam": {
+					"100%": {
+						"offset-distance": "100%",
+					},
+				},
 				shine: {
 					from: {
 						backgroundPosition: '200% 0'
@@ -39,7 +44,9 @@ const config: Config = {
 			animation: {
 				shine: 'shine 8s ease-in-out infinite',
 				'shiny-text': 'shiny-text 8s infinite',
-				rainbow: 'rainbow var(--speed, 2s) infinite linear'
+				rainbow: 'rainbow var(--speed, 2s) infinite linear',
+				"border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+
 			},
 			colors: {
 

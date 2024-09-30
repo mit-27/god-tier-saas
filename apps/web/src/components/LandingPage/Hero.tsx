@@ -29,7 +29,7 @@ const Hero = () => {
               </Link>
               <div className="relative flex flex-col gap-4 md:items-center lg:flex-row">
                   <Title>
-                    Build the next Scalable Infrastructure 
+                    Build the next Enterprise Application 
                   </Title>
               </div>
               

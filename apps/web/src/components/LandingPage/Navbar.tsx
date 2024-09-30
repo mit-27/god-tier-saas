@@ -125,7 +125,7 @@ const Navbar = () => {
         <div className="block md:hidden">
           <MobileNav />
         </div>
-        <Button className="h-7 px-2 py-1 text-xs hidden md:block" variant={"shine"}>Log in</Button>
+        <Button className="h-7 px-3 rounded-sm py-1 text-xs hidden md:block" variant={"shine"}>Log in</Button>
       </div>
     </header>
   )
