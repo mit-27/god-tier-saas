@@ -18,7 +18,7 @@ const CodeSelection = () => {
   return (
     <div 
     // className="flex flex-col gap-2 lg:flex-row sm:gap-4 mt-2"
-    className='grid lg:grid-cols-2 mt-2 items-center sm:gap-5 md:gap-5 xl:gap-32 grid-cols-1 '
+    className='grid lg:grid-cols-2 mt-6 items-center sm:gap-5 md:gap-5 xl:gap-32 grid-cols-1 '
     >
           <div className="w-full  max-w-full relative rounded-lg">
             <p className='absolute top-0 ml-1 border-b border-r rounded-br-md pr-2 p-1 font-medium border-gray-800 left-0 text-[#4FFA7B]/70 '>{AccordionData[currentStep].fileName}</p>

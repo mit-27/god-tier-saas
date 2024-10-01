@@ -1,4 +1,4 @@
-import Background from "@/components/LandingPage/Background";
+import Background from "@/components/LandingPage/background";
 import Features from "@/components/LandingPage/Features";
 import Footer from "@/components/LandingPage/Footer";
 import Guide from "@/components/LandingPage/Guide";

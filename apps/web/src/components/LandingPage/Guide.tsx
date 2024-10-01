@@ -10,7 +10,7 @@ const Guide = () => {
   
 
   return (
-    <div className="grid grid-cols-1 mt-4 min-h-screen">
+    <div className="grid grid-cols-1 mt-6 min-h-screen">
 
     <div className="flex flex-col items-start gap-3 px-7 pb-8 text-center md:items-center md:px-10">
       <div className="relative flex flex-col md:items-center lg:flex-row">

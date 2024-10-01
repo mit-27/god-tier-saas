@@ -66,7 +66,7 @@ const Features = () => {
       ];
 
   return (
-    <div className="flex flex-col gap-2 sm:gap-4 mt-2">
+    <div className="flex flex-col gap-2 sm:gap-4 mt-3">
         <div className="relative flex flex-col md:items-center lg:flex-row">
             <Title className="lg:text-5xl">Features</Title>
         </div>
