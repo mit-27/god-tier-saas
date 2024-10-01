@@ -3,6 +3,7 @@ import Features from "@/components/LandingPage/Features";
 import Guide from "@/components/LandingPage/Guide";
 import Hero from "@/components/LandingPage/Hero";
 import Navbar from "@/components/LandingPage/Navbar";
+import TechStack from "@/components/LandingPage/TechStack";
 
 export default async function Home() {
 
@@ -15,7 +16,7 @@ export default async function Home() {
           <Hero/>
           <Guide/>
           <Features/>
-
+          <TechStack/>
         </div>
       </div>
     </Background> 

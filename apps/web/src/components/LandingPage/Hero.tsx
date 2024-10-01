@@ -13,8 +13,8 @@ import Subtitle from "../ui/Subtitle";
 
 const Hero = () => {
   return (
-    <>
-        <div className="mt-10 grid grid-cols-1 md:mt-20">
+    <div>
+        <div className="mt-10 grid grid-cols-1 md:mt-20 min-h-screen">
         <div className="flex flex-col items-start gap-6 px-7 pb-8 text-center md:items-center md:px-10">
               <Link
                 href="https://github.com/mit-27/god-tier-saas"
@@ -75,7 +75,7 @@ const Hero = () => {
                     )}
                   >
                     <GitHubLogoIcon className="h-5 w-5 mx-2" />
-                    <span>Star on GitHub</span>
+                    <span>View on GitHub</span>
                   </Link>
 
 
@@ -103,7 +103,7 @@ const Hero = () => {
             thumbnailAlt="Hero Video"
           />
         </div> 
-    </>
+    </div>
   )
 }
 

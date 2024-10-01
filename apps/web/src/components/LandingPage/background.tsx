@@ -11,7 +11,7 @@ const Background = ({children} : {children: ReactNode}) => {
         quantity={100}
         ease={80}
         color="#ffffff"
-        refresh
+        // refresh
       />
     </div>
   )
