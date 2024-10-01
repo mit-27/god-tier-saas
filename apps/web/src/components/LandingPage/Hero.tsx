@@ -18,6 +18,7 @@ const Hero = () => {
         <div className="flex flex-col items-start gap-6 px-7 pb-8 text-center md:items-center md:px-10">
               <Link
                 href="https://github.com/mit-27/god-tier-saas"
+                target="_blank"
                 className={cn(
                   "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
                 )}
@@ -66,6 +67,7 @@ const Hero = () => {
                   </Link>
                   <Link
                     href="https://github.com/mit-27/god-tier-saas"
+                    target="_blank"
                     className={cn(
                       buttonVariants({
                         variant: "outline",

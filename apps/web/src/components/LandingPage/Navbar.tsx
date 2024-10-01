@@ -46,7 +46,7 @@ const Navbar = () => {
     <header className="sticky top-3 z-50 flex items-center justify-between gap-8 rounded-2xl border px-1.5 py-1.5 backdrop-blur-lg md:top-6 mx-auto w-full max-w-4xl">
         <div className="flex items-center gap-6">
             <div className="mx-3 flex items-center gap-3 cursor-pointer">
-                <p className="text-[13px] font-bold cursor-pointer text-[#b59b5a]">GTS</p>
+                <p className="text-[13px] font-bold cursor-pointer text-[#b59b5a]">{'{'}God Tier SaaS{'}'}</p>
             </div>
             <div
             className={cn(

@@ -1,13 +1,15 @@
 import Title from "@/components/ui/Title"
 import Ripple from "../ui/ripple"
-import { Button } from "../ui/button"
+import { Button, buttonVariants } from "../ui/button"
 import React from "react"
 import { StarFilledIcon } from "@radix-ui/react-icons"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
 
 
 const HoverButton = ({children} : {children: React.ReactNode}) => {
   return (
-    <div className="inline-block transition-all z-30 duration-300 ease-in-out hover:scale-110 hover:cursor-pointer">
+    <div className="inline-block transition-all z-30 duration-300 ease-in-out hover:scale-110">
       {children}
     </div>
   )
@@ -17,7 +19,7 @@ const HoverButton = ({children} : {children: React.ReactNode}) => {
 const TechStack = () => {
   return (
     <div className="flex relative z-10 bg-black flex-col gap-4 sm:gap-4 mt-4 border w-full rounded-sm items-center justify-center p-4 max-w-5xl mx-auto min-h-[50vh]">
-        <div className="relative max-w-2xl flex flex-col md:items-center lg:flex-row">
+        <div className="relative z-10 max-w-2xl flex flex-col md:items-center lg:flex-row">
             <Title className="lg:text-4xl md:text-4xl text-2xl text-center  sm:text-2xl">Built on leading open-source technologies</Title>
         </div>
 
@@ -52,11 +54,27 @@ const TechStack = () => {
           </HoverButton>
 
         </div>
+
+        <Link
+        href="https://github.com/mit-27/god-tier-saas"
+        target="_blank"
+        className={cn(
+          buttonVariants({
+            variant: "ringHover",
+            
+          }),
+          " mx-2 z-10 my-5"
+        )}
+        >
+        <StarFilledIcon className="w-5 h-5 mx-2"/> <span>Star on Github</span>
+        </Link>
+
+
         
-        <Button variant={'ringHover'} className="z-10 mt-10"> <StarFilledIcon className="w-5 h-5 mx-2"/> Star on Github</Button>
+        {/* <Button variant={'ringHover'} className="z-10 mt-10"> </Button> */}
 
 
-        <Ripple mainCircleOpacity={0.15} mainCircleSize={210}/>
+        <Ripple mainCircleOpacity={0.15} mainCircleSize={30}/>
 
     </div>
   )
