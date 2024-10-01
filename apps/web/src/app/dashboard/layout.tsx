@@ -23,7 +23,7 @@ export default function DashboardLayout({
     const {data : currentSession} = useSession();
 
     return (
-      <div>
+      <div className="">
       {children}
       </div>
     );
