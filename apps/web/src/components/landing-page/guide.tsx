@@ -4,7 +4,7 @@ import Title from "@/components/ui/Title"
 
 
 import { useState } from "react";
-import CodeSelection from "./CodeSelection";
+import CodeSelection from "./code-selection";
 
 const Guide = () => {
   

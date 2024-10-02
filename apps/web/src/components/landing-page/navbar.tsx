@@ -14,10 +14,13 @@ import { Icons, type ValidIcon } from "@/components/ui/icons";
 import Link, { type LinkProps } from "next/link";
 import { mainPageConfig } from "@/config/Navconfig";
 import { usePathname } from "next/navigation";
-import MobileNav from "./MobileNav";
+import MobileNav from "./mobile-nav";
 import { Button } from "../ui/button";
 import { cva } from "class-variance-authority";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { signIn, useSession } from "next-auth/react";
+import { on } from "events";
+import { useRouter } from "next/navigation";
 
 
 
@@ -41,6 +44,17 @@ const navItemStyles = cva(
 
 const Navbar = () => {
   const pathname = usePathname();
+  const {data : currentSession} = useSession();
+  const router = useRouter();
+
+  const onSignIn = () => {
+    if(currentSession) {
+      router.push('/dashboard')
+    }
+    else {
+      signIn('google', { callbackUrl: '/dashboard' })
+    }
+  }
 
   return (
     <header className="sticky top-3 z-50 flex items-center justify-between gap-8 rounded-2xl border px-1.5 py-1.5 backdrop-blur-lg md:top-6 mx-auto w-full max-w-4xl">
@@ -125,7 +139,7 @@ const Navbar = () => {
         <div className="block md:hidden">
           <MobileNav />
         </div>
-        <Button className="h-7 px-3 rounded-sm py-1 text-xs hidden md:block" variant={"secondary"}>Log in</Button>
+        <Button onClick={() => onSignIn()} className="h-7 px-3 rounded-sm py-1 text-xs hidden md:block" variant={"secondary"}>{currentSession ? 'Dashboard' : 'Log in'}</Button>
       </div>
     </header>
   )

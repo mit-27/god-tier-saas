@@ -1,6 +1,6 @@
 
-import CreatePost from "@/components/Posts/CreatePost";
-import Posts from "@/components/Posts/PostList";
+import CreatePost from "@/components/posts/create-post";
+import Posts from "@/components/posts/post-list";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 
