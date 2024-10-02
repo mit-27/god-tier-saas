@@ -1,7 +1,7 @@
 "use client"
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import CustomAccordionItem from '@/components/ui/customAccordionItem';
+import CustomAccordionItem from '@/components/ui/custom-accordion-item';
 import { useState } from 'react';
 import { BorderBeam } from '@/components/ui/border-beam';
 import {AccordionData,AccordionDataItemType} from '@/config/codeSelectionConfig'

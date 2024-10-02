@@ -38,7 +38,7 @@ export default async function RootLayout({
         >
           <SessionProvider session={session}>
             <Providers>
-              {children}
+                {children}
             </Providers>
           </SessionProvider>
         </ThemeProvider>

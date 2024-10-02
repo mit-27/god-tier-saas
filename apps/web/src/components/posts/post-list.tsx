@@ -1,8 +1,9 @@
 "use client";
 import { api } from "@/lib/api-client";
 import { Skeleton } from "@/components/ui/skeleton";
-import PostCard from "./PostCard";
+import PostCard from "./post-card";
 import { useEffect, useState } from "react";
+import React from "react";
 
 const Posts = () => {
 

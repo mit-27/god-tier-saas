@@ -14,7 +14,7 @@ import { Icons, type ValidIcon } from "@/components/ui/icons";
 import Link, { type LinkProps } from "next/link";
 import { mainPageConfig } from "@/config/Navconfig";
 import { usePathname } from "next/navigation";
-import MobileNav from "./MobileNav";
+import MobileNav from "./mobile-nav";
 import { Button } from "../ui/button";
 import { cva } from "class-variance-authority";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";

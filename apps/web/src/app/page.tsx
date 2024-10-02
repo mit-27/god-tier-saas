@@ -1,10 +1,10 @@
-import Background from "@/components/LandingPage/background";
-import Features from "@/components/LandingPage/Features";
-import Footer from "@/components/LandingPage/Footer";
-import Guide from "@/components/LandingPage/Guide";
-import Hero from "@/components/LandingPage/Hero";
-import Navbar from "@/components/LandingPage/Navbar";
-import TechStack from "@/components/LandingPage/TechStack";
+import Background from "@/components/landing-page/background";
+import Features from "@/components/landing-page/features";
+import Footer from "@/components/landing-page/footer";
+import Guide from "@/components/landing-page/guide";
+import Hero from "@/components/landing-page/hero";
+import Navbar from "@/components/landing-page/navbar";
+import TechStack from "@/components/landing-page/tech-stack";
 
 export default async function Home() {
 
