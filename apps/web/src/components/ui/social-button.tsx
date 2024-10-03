@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Button } from "./button";
 
-import type { Social } from "@/config/SocialButtonconfig";
+import type { Social } from "@/config/social-button-names-config";
 import { Icons } from "./icons";
 
 export function SocialIconButton({ href, title, icon }: Social) {

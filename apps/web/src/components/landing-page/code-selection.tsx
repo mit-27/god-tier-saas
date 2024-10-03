@@ -4,7 +4,7 @@ import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import CustomAccordionItem from '@/components/ui/custom-accordion-item';
 import { useState } from 'react';
 import { BorderBeam } from '@/components/ui/border-beam';
-import {AccordionData,AccordionDataItemType} from '@/config/codeSelectionConfig'
+import {AccordionData,AccordionDataItemType} from '@/config/code-selection-items-config'
 
 
 

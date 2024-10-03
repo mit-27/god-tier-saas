@@ -11,60 +11,6 @@ export type Page = {
     children?: Page[];
 };
 
-
-
-
-
-
-
-
-
-
-// export type PageId = (typeof pagesConfig)[number]["segment"];
-
-// export const pagesConfig = [
-//     {
-//         title: "Monitors",
-//         description: "Check all the responses in one place.",
-//         href: "/monitors",
-//         icon: "activity",
-//         segment: "monitors",
-//         // children: monitorPagesConfig,
-//     },
-//     {
-//         title: "Incidents",
-//         description: "All your incidents.",
-//         href: "/incidents",
-//         icon: "siren",
-//         segment: "incidents",
-//         // children: incidentPagesConfig,
-//     },
-//     {
-//         title: "Status Pages",
-//         description: "Where you can see all the pages.",
-//         href: "/status-pages",
-//         icon: "panel-top",
-//         segment: "status-pages",
-//         // children: statusPagesPagesConfig,
-//     },
-//     {
-//         title: "Notifications",
-//         description: "Where you can see all the notifications.",
-//         href: "/notifications",
-//         icon: "bell",
-//         segment: "notifications",
-//         // children: notificationsPagesConfig,
-//     },
-//     {
-//         title: "Settings",
-//         description: "Your workspace settings",
-//         href: "/settings/general",
-//         icon: "cog",
-//         segment: "settings",
-//         // children: settingsPagesConfig,
-//     },
-// ] as const satisfies readonly Page[];
-
 type MarketingPageType = Page;
 
 export const marketingProductPagesConfig = [
@@ -110,14 +56,14 @@ export const mainPageConfig = [
     {
         href: "/",
         title: "Features",
-        description: "All product features for OpenStatus",
+        description: "All product features for GTS",
         segment: "",
         icon: "package",
         children: marketingProductPagesConfig,
     },
     {
         href: "/",
-        description: "All resources for OpenStatus",
+        description: "All resources for GTS",
         title: "Resources",
         segment: "",
         icon: "library",
@@ -126,13 +72,13 @@ export const mainPageConfig = [
     {
         href: "/",
         title: "Pricing",
-        description: "The pricing for OpenStatus.",
+        description: "The pricing for GTS.",
         segment: "pricing",
         icon: "credit-card",
     },
     {
         href: "/",
-        description: "The documentation for OpenStatus.",
+        description: "The documentation for GTS.",
         title: "Docs",
         segment: "docs",
         icon: "book",

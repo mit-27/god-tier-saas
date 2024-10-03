@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <Background>
-      <div className="">
+      <div>
         <Navbar/>
         <div className="flex flex-col items-center justify-center gap-8 p-4 md:p-8">
           <Hero/>

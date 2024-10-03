@@ -19,14 +19,14 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { mainPageConfig } from "@/config/Navconfig";
-import { socialsConfig } from "@/config/SocialButtonconfig";
+import { mainPageConfig } from "@/config/landing-page-nav-items";
+import { socialsConfig } from "@/config/social-button-names-config";
 import { useWindowScroll } from "@/hooks/use-window-scroll";
 import { cn } from "@/lib/utils";
 import Link, { type LinkProps } from "next/link";
 import { Icons, type ValidIcon } from "@/components/ui/icons";
 import { SocialIconButton } from "@/components/ui/social-button";
-import { Page } from "@/config/Navconfig";
+import { Page } from "@/config/landing-page-nav-items";
 
 const MobileNav = () => {
   const [open, setOpen] = React.useState(false);
