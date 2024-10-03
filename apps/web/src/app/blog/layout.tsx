@@ -20,7 +20,6 @@ export default function DashboardLayout({
           <Navbar/>
           <div className="mt-5 p-5 z-10">
           {children}
-
           </div>
         </div>
       </Background>

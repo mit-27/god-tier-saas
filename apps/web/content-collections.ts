@@ -21,14 +21,13 @@ const blogs = defineCollection({
         const mdx = await compileMDX(context, document, {
             remarkPlugins: [remarkGfm, remarkHeading, remarkStructure],
         }
-
         );
+
         return {
             ...document,
             mdx,
             slug: document._meta.path,
             url: `/blog/${document._meta.path}`,
-            // tableOfContents,
         };
     },
 });

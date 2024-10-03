@@ -3,8 +3,11 @@ import { getTableOfContents } from 'fumadocs-core/server';
 import { MDXContent } from "@content-collections/mdx/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { format, parseISO } from "date-fns";
+import { notFound } from "next/navigation";
 import { MDX } from "@/components/blog/mdx-content";
-
+import { Article } from "@/components/blog/article";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type TOCItemType = {
   title: React.ReactNode,
@@ -31,10 +34,46 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
 
   if (!post) {
-    return {
-      notFound: true,
-    };
+    notFound();
   }
+
+  return (
+    <div className="container pt-48 mx-auto sm:overflow-hidden md:overflow-visible scroll-smooth">
+      <div className="flex flex-row justify-center gap-5">
+
+        <div className="rounded-lg bg-gray-500/15 border border-border sm:overflow-hidden md:overflow-visible flex flex-col max-w-3xl lg:w-3/4 px-3 py-4 backdrop-blur-[2px] md:p-6 sm:py-8 md:py-12">
+          <Article post={post} />
+        </div>
+
+        <div className="items-start hidden h-full gap-4 pt-8 space-y-4 prose lg:sticky top-24 lg:w-1/4 not-prose lg:mt-12 lg:flex lg:flex-col">
+          <p className="text-xl prose text-nowrap text-white font-bold">Contents</p>
+          <ul className="relative flex flex-col gap-1 overflow-hidden">
+            {
+            tableOfContents.length>0 && 
+            tableOfContents.map((item : TOCItemType,index : number ) => (
+              <li key={`${item.url}`}>
+                <Link
+                href={`${item.url}`}
+                data-level={item.depth}
+                className={cn({
+                  "text-md font-medium mt-4 text-transparent bg-clip-text bg-gradient-to-r from-white  to-white/70 truncate":
+                    item.depth === 1 || item.depth === 2,
+                  "text-sm ml-4 leading-8 text-transparent bg-clip-text bg-gradient-to-r from-white/60  to-white/50 truncate":
+                  item.depth === 3 || item.depth === 4,
+                })}
+                
+                >
+                {item.title}
+                </Link>
+              </li>
+              ))
+            }
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
   
 
 
