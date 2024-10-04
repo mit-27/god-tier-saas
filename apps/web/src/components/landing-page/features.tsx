@@ -2,14 +2,15 @@
 
 import Feature from "@/components/ui/feature"
 import {
-    IconAdjustmentsBolt,
-    IconCloud,
-    IconCurrencyDollar,
-    IconEaseInOut,
-    IconHeart,
-    IconHelp,
-    IconRouteAltLeft,
-    IconTerminal2,
+    IconTransfer,
+    IconDatabase,
+    IconBrush,
+    IconShield,
+    IconDeviceDesktopAnalytics,
+    IconShip,
+    IconBlockquote,
+    IconPaint
+    
   } from "@tabler/icons-react";
 import Title from "../ui/Title";
 
@@ -19,49 +20,49 @@ const Features = () => {
 
     const features = [
         {
-          title: "Built for developers",
+          title: "End to End Type Safety",
           description:
-            "Built for engineers, developers, dreamers, thinkers and doers.",
-          icon: <IconTerminal2 />,
+            "Get the best developer experience with type-safety and easy API development.",
+          icon: <IconTransfer />,
         },
         {
-          title: "Ease of use",
+          title: "Manage your database with Drizzle ORM",
           description:
-            "It's as easy as using an Apple, and as expensive as buying one.",
-          icon: <IconEaseInOut />,
+            "Drizzle ORM enables fast, type-safe database queries with PostgreSQL.",
+          icon: <IconDatabase />,
         },
         {
-          title: "Pricing like no other",
+          title: "Demo of Optimistic UI",
           description:
-            "Our prices are best in the market. No cap, no lock, no credit card required.",
-          icon: <IconCurrencyDollar />,
+            "Example to showcase how to fetch data from the server and update the UI in real-time with Tanstack Query.",
+          icon: <IconBrush />,
         },
         {
-          title: "100% Uptime guarantee",
-          description: "We just cannot be taken down by anyone.",
-          icon: <IconCloud />,
+          title: "Secure Authentication",
+          description: "Implement secure client-side and server-side authentication using AuthJS.",
+          icon: <IconShield />,
         },
         {
-          title: "Multi-tenant Architecture",
-          description: "You can simply share passwords instead of buying new seats",
-          icon: <IconRouteAltLeft />,
+          title: "Analytics with PostHog",
+          description: "Track user behavior and understand your customers better with PostHog.",
+          icon: <IconDeviceDesktopAnalytics />,
         },
         {
-          title: "24/7 Customer Support",
+          title: "Deployment ready with Docker",
           description:
-            "We are available a 100% of the time. Atleast our AI Agents are.",
-          icon: <IconHelp />,
+            "Deploy your application with Docker and Docker Compose.",
+          icon: <IconShip />,
         },
         {
-          title: "Money back guarantee",
+          title: "Ready-to-use blog and changelog",
           description:
-            "If you donot like EveryAI, we will convince you to like us.",
-          icon: <IconAdjustmentsBolt />,
+            "Manage your blogs and changelogs with ready-to-use content collections.",
+          icon: <IconBlockquote />,
         },
         {
-          title: "And everything else",
-          description: "I just ran out of copy ideas. Accept my sincere apologies",
-          icon: <IconHeart />,
+          title: "Templatees from landing page to Dashboard",
+          description: "Use ready-to-use templatees for your landing page and dashboard.",
+          icon: <IconPaint />,
         },
       ];
 

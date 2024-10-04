@@ -5,88 +5,107 @@ export type AccordionDataItemType = {
     index: number,
     codeString: string,
     fileName: string,
+    doc_link?: string,
 }
 
 export const AccordionData: AccordionDataItemType[] = [
     {
-        title: 'Create a Controller',
-        content: 'Create a controller to handle the API requests.',
+        title: '1) Define the API with ts-rest Router in shared module',
+        content: "Define your API endpoint fields like body, query, pathParams, and headers in the router function using a simple TypeScript type with the c.type helper, or use Zod objects instead.",
         index: 0,
-        fileName: "Page.tsx",
+        doc_link: "https://ts-rest.com/docs/core/",
+        fileName: "shared/../router.ts",
         codeString: `
-        import { cn } from "@/lib/utils"
-        const Title1 = ({children,className} : {children: React.ReactNode,className?: string}) => {
-  
-          return (
-                <h1
-                    className={cn(
-                    "text-black dark:text-white",
-                    "relative mx-0 max-w-[43.5rem]  pt-5  md:mx-auto md:px-4 md:py-2",
-                    "text-balance text-left font-semibold tracking-tighter md:text-center",
-                    "text-5xl sm:text-7xl md:text-7xl lg:text-7xl",
-                    className
-                    )}
-                >
-                {children}
-                </h1>
-          )
+import { initContract } from '@ts-rest/core';
+import { z } from 'zod';
+
+const c = initContract();
+
+export const contract = c.router(
+    {
+        getTodo: {
+            method: 'GET',
+            path: '/todos',
+            responses: {
+                200: z.object({
+                    id: z.string(),
+                    todoTitle: z.string(),
+                    completed: z.boolean(),
+
+                }).array(),
+                400: z.object({
+                    message: z.string(),
+                }),
+            },
+            summary: 'Get all todos',
         }
-  
-        export default Title1
+    },
+);
         `
     },
     {
-        title: 'Define the API',
-        content: 'Define the API routes using ts-rest Router.',
+        title: '2) Implmenet the API in the NestJS controller',
+        content: 'Use TsRestHandler to implement the API in the controller and it is also compatible with NestJS decorators.',
         index: 1,
-        fileName: "Router.tsx",
+        doc_link: "https://ts-rest.com/docs/react-query/query-client",
+        fileName: "server/../todo.controller.ts",
         codeString: `
-        import { cn } from "@/lib/utils"
-        const Title2 = ({children,className} : {children: React.ReactNode,className?: string}) => {
-  
-          return (
-                <h1
-                    className={cn(
-                    "text-black dark:text-white",
-                    "relative mx-0 max-w-[43.5rem]  pt-5  md:mx-auto md:px-4 md:py-2",
-                    "text-balance text-left font-semibold tracking-tighter md:text-center",
-                    "text-5xl sm:text-7xl md:text-7xl lg:text-7xl",
-                    className
-                    )}
-                >
-                {children}
-                </h1>
-          )
-        }
-  
-        export default Title2
+import { Controller, Get, Post, Req, HttpCode, HttpStatus, Body, UseGuards } from '@nestjs/common';
+import { TodoService } from './todo.service';
+import { contract } from '@template/shared';
+import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
+
+@Controller()
+export class TodoController {
+    constructor(private readonly todoService: TodoService) { }
+
+    @TsRestHandler(contract.getTodo)
+    async getTodos() {
+        return tsRestHandler(contract.getTodo, async () => {
+
+            const todos = await this.todoService.getPosts();
+            if (!todos) {
+                return {
+                    status: 400,
+                    body: { message: "Failed to get todos" }
+                }
+            }
+            console.log(todos);
+            return {
+                status: 200,
+                body: todos
+            }
+
+        })
+    }
+} 
         `
     },
     {
-        title: 'Implement the API',
-        content: 'Implement the API routes in your controller.',
+        title: '3) Use the type-safe API on the frontend with Tanstack Query.',
+        content: 'You can use Tanstack query which provides type-safety for your fetch and mutation calls.',
         index: 2,
-        fileName: "Component.tsx",
+        fileName: "web/../todo/page.tsx",
         codeString: `
-        import { cn } from "@/lib/utils"
-        const Title3 = ({children,className} : {children: React.ReactNode,className?: string}) => {
-  
-          return (
-                <h1
-                    className={cn(
-                    "text-black dark:text-white",
-                    "relative mx-0 max-w-[43.5rem]  pt-5  md:mx-auto md:px-4 md:py-2",
-                    "text-balance text-left font-semibold tracking-tighter md:text-center",
-                    "text-5xl sm:text-7xl md:text-7xl lg:text-7xl",
-                    className
-                    )}
-                >
-                {children}
-                </h1>
-          )
-        }
-  
-        export default Title3
+"use client"
+
+import { api } from "@/lib/api-client"
+
+
+const TodoPage = () => {
+
+  const {data,isLoading,isError} = api.getTodo.useQuery({
+    queryKey: ['todos'],
+  });
+
+    return (
+      <div className="w-[60%] mx-auto mt-10 min-h-full">
+        <h1>{isLoading ? 'Loading...' : JSON.stringify(data?.body)}</h1>
+      </div>
+    )
+  }
+    
+  export default TodoPage
         `
     },
 

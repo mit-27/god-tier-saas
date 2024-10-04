@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const CustomAccordionItem = ({accordionTitle , accordionContent, isOpen, onClick } : { accordionTitle: string, accordionContent: string, isOpen: boolean, onClick: () => void }) => {
+const CustomAccordionItem = ({accordionTitle , accordionContent,doc_link, isOpen, onClick } : { accordionTitle: string, accordionContent: string, doc_link?: string, isOpen: boolean, onClick: () => void }) => {
     // const [isOpen, setIsOpen] = useState(false);
     return (
       <div className={`border-b ${isOpen ? 'border-[#d4921e]' : ''}`}>
@@ -25,7 +25,7 @@ const CustomAccordionItem = ({accordionTitle , accordionContent, isOpen, onClick
               transition={{ duration: 0.4, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <div className={`text-left text-wrap dark:text-neutral-400 text-[0.9rem] px-3 overflow-hidden ${isOpen ? 'pb-3' : 'py-2'}`}>{accordionContent}</div>
+              <div className={`text-left text-wrap dark:text-neutral-400 text-[0.9rem] px-3 overflow-hidden ${isOpen ? 'pb-3' : 'py-2'}`}>{accordionContent} {doc_link && <a href={doc_link} target="_blank" className="text-xs text-white/50 underline underline-offset-4">{`[ Docs ]`}</a>}</div>
             </motion.div>
           )}
         </AnimatePresence>

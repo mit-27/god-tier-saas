@@ -8,7 +8,7 @@ const Background = ({children} : {children: ReactNode}) => {
         {children}
         <Particles
         className="absolute inset-0 -z-10"
-        quantity={100}
+        quantity={150}
         ease={80}
         color="#ffffff"
         // refresh
