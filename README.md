@@ -51,6 +51,12 @@ To set up and run the project using Docker Compose:
 
    Edit `.env` files and add the necessary environment variables.
 
+4. Remove all node_modules
+
+   ```bash
+   rm -rf node_modules .pnpm-store ./apps/web/node_modules ./apps/server/node_modules ./packages/shared/node_modules ./apps/server/dist pg_data
+   ```
+
 4. Run the following command:
 
    ```bash
@@ -69,10 +75,12 @@ To set up and run the project locally using pnpm:
 
    ```bash
    cp apps/web/.env.example apps/web/.env.local
+   cp .env.example .env
    cp apps/server/.env.example apps/server/.env
+   cp packages/shared/.env.example packages/shared/.env
    ```
 
-   Edit both `.env` files and add the necessary environment variables.
+   Edit both `.env` files and add the necessary environment variables. Here docker-compose.postgres.yml used db credentials from .env file. So make sure the credentails that you used in apps.server/.env and packages.shared/.env are same as root .env file.
 
 4. Install the dependencies by running:
 

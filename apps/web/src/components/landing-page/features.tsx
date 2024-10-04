@@ -34,7 +34,7 @@ const Features = () => {
         {
           title: "Demo of Optimistic UI",
           description:
-            "Example to showcase how to fetch data from the server and update the UI in real-time with Tanstack Query.",
+            "Example of a Posts page demonstrating Optimistic UI CRUD operations using Tanstack Query.",
           icon: <IconBrush />,
         },
         {

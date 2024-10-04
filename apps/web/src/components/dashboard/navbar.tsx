@@ -15,9 +15,9 @@ const Navbar = ({className} : {className: string}) => {
         className,
       )}
     >
-        <div className="flex min-w-full mt-2 items-center justify-center -mx-2">
+        <Link href="/dashboard" className="flex min-w-full mt-2 items-center justify-center -mx-2">
             {'My App'}
-        </div>
+        </Link>
 
         <nav className="flex flex-col flex-1 flex-grow mt-6 pb-10">
             <ul className="flex flex-col flex-1 gap-y-6">

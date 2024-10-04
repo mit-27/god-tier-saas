@@ -7,7 +7,6 @@ import { PostModule } from './post/post.module';
 import { AuthModule } from './core/auth/auth.module';
 import { CoreSharedModule } from './core/core.module';
 import { LoggerModule } from 'nestjs-pino';
-import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -23,7 +22,6 @@ import { TodoModule } from './todo/todo.module';
     }),
     CoreSharedModule,
     PostModule,
-    TodoModule,
     ConfigModule.forRoot({ isGlobal: true })
   ],
   controllers: [AppController],

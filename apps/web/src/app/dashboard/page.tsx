@@ -8,7 +8,7 @@ export default function DashboardPage() {
   // const { data: session } = useSession()
 
   return (
-    <div className="min-h-screen justify-center items-center">
+    <div className="w-[60%] mx-auto mt-10 min-h-full">
       <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
       <h2>Welcome, Mit</h2>
     </div>
