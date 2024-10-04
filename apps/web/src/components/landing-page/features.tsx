@@ -54,7 +54,7 @@ const Features = () => {
           icon: <IconShip />,
         },
         {
-          title: "Ready-to-use blog and changelog",
+          title: "Ready-to-use ContentLayer for blog and changelog",
           description:
             "Manage your blogs and changelogs with ready-to-use content collections.",
           icon: <IconBlockquote />,

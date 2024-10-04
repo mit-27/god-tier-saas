@@ -1,81 +1,91 @@
-# Turborepo starter
+# 🚀 God Tier SaaS - Build the next Enterprise application
 
-This is an official starter Turborepo.
+A SaaS Kit offering end-to-end type safety with ts-rest between Next.js and Nest.js, along with integrated services like AuthJS for authentication, PostHog for analytics, and Drizzle ORM with PostgreSQL for database management.
 
-## Using this example
+Perfect to build scalable SaaS applications.
 
-Run the following command:
+## Key Features
 
-```sh
-npx create-turbo@latest
-```
+- End-to-end Type safety with ts-rest
+- Dashboard and Landing Page with NextJS
+- Optimistic UI with TanStack Query
+- Database management with Drizzle ORM
+- Authentication ready with NextAuth.js
+- Containerized development environment
+- Monorepo structure for efficient code organization
+- Analytics with PostHog
+- Ready-to-use ContentLayer for blog and changelog
 
-## What's inside?
 
-This Turborepo includes the following packages/apps:
+## Tech Stack
+- NextJS as the frontend framework
+- NestJS as the backend framework
+- tRPC for end-to-end type safety
+- Prisma ORM for database management
+- NextAuth.js for authentication
+- Docker for containerization
+- PostHog for analytics
+- Content Collections for blog and changelog
 
-### Apps and Packages
+This stack ensures a robust, scalable, and maintainable application with strong typing throughout the entire codebase and secure authentication.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Setup and Running Instructions
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### 1. 🐳 Using Docker
 
-### Utilities
+To set up and run the project using Docker Compose:
 
-This Turborepo has some additional tools already setup for you:
+1. Ensure you have Docker and Docker Compose installed on your system.
+2. Open a terminal and navigate to the project's root directory.
+3. Copy the example environment files and add appropriate environment variables:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+   ```bash
+   cp .env.example .env
+   ```
 
-### Build
+   Edit `.env` files and add the necessary environment variables.
 
-To build all apps and packages, run the following command:
+4. Run the following command:
 
-```
-cd my-turborepo
-pnpm build
-```
+   ```bash
+   docker-compose -f docker-compose.dev.yml up
+   ```
 
-### Develop
+This command will build and start all the necessary containers defined in the `docker-compose.dev.yml` file.
 
-To develop all apps and packages, run the following command:
+## 2. 📦 Using pnpm (Local Development)
 
-```
-cd my-turborepo
-pnpm dev
-```
+To set up and run the project locally using pnpm:
 
-### Remote Caching
+1. Make sure you have Node.js (version 18 or higher) and pnpm installed on your system.
+2. Open a terminal and navigate to the project's root directory.
+3. Copy the example environment files and add appropriate environment variables:
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+   ```bash
+   cp apps/web/.env.example apps/web/.env.local
+   cp apps/server/.env.example apps/server/.env
+   ```
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+   Edit both `.env` files and add the necessary environment variables.
 
-```
-cd my-turborepo
-npx turbo login
-```
+4. Install the dependencies by running:
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+   ```bash
+   pnpm install
+   ```
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+5. Start the PostgreSQL database using Docker Compose:
 
-```
-npx turbo link
-```
+   ```bash
+   docker-compose -f docker-compose.postgres.yml up -d
+   ```
 
-## Useful Links
+6. Start the development servers by running:
 
-Learn more about the power of Turborepo:
+   ```bash
+   pnpm run dev
+   ```
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+This command will concurrently start both the Next.js web application (on port 8090) and the NestJS API server with shared module which manages db and ts-rest router. It uses Turbo to manage the monorepo workspace and run the development scripts for both the web and API projects simultaneously.
+
+Make sure your environment variables are properly configured to connect to the PostgreSQL database started by Docker Compose.
