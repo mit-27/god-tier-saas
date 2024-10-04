@@ -25,7 +25,7 @@ export default async function RootLayout({
 }>) {
   const session = await auth();
   return (
-    <html lang="en" content="notranslate"suppressHydrationWarning>
+    <html lang="en" content="notranslate" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen font-sans",

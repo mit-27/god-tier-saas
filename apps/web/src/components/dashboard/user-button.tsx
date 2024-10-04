@@ -32,7 +32,7 @@ export const UserButton : React.FC = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="flex items-center justify-between gap-2 p-2 w-full h-12 rounded-[0.625rem] hover:bg-background-subtle hover:cursor-pointer text-content">
+      <DropdownMenuTrigger asChild className="flex items-center justify-between gap-2 p-2 w-full h-12 rounded-[0.625rem] hover:bg-gray-700/10 hover:cursor-pointer text-content">
         <div className="flex items-center gap-2 whitespace-nowrap overflow-hidden">
           <Avatar className="w-5 h-5">
             {currentSession.user?.image ? <AvatarImage src={currentSession.user?.image} alt="Profile picture" /> : null}
@@ -49,7 +49,7 @@ export const UserButton : React.FC = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent side="right" className="w-96">
         <DropdownMenuGroup>
-          <Link href="/new">
+          {/* <Link href="/new"> */}
             <DropdownMenuCheckboxItem 
             checked={theme==="light"}
             onCheckedChange={() => setTheme("light")}
@@ -57,8 +57,8 @@ export const UserButton : React.FC = () => {
               <Sun className="w-4 h-4 mr-2" />
               <span>Light</span>
             </DropdownMenuCheckboxItem>
-          </Link>
-          <Link href="https://unkey.dev/docs" target="_blank">
+          {/* </Link> */}
+          {/* <Link target="_blank"> */}
             <DropdownMenuCheckboxItem 
             checked={theme==="dark"}
             onCheckedChange={() => setTheme("dark")}
@@ -66,8 +66,8 @@ export const UserButton : React.FC = () => {
               <Moon className="w-4 h-4 mr-2" />
               <span>Dark</span>
             </DropdownMenuCheckboxItem>
-          </Link>
-          <Link href="/settings/user">
+          {/* </Link> */}
+          {/* <Link href="/settings/user"> */}
             <DropdownMenuCheckboxItem 
             checked={theme==="system"}
             onCheckedChange={() => setTheme("system")}
@@ -75,7 +75,7 @@ export const UserButton : React.FC = () => {
               <Monitor className="w-4 h-4 mr-2" />
               <span>System</span>
             </DropdownMenuCheckboxItem>
-          </Link>
+          {/* </Link> */}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>

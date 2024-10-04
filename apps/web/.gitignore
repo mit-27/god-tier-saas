@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# content collections
+.content-collections
+
 # next.js
 /.next/
 /out/

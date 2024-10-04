@@ -29,6 +29,7 @@ const CodeSelection = () => {
               borderRadius: '0.5rem',
               overflow: 'auto',        
               paddingTop: '1rem',
+              height:'30rem',
               textAlign: 'left',
               fontSize: '0.8rem',
               msOverflowStyle: 'none',  // IE and Edge
@@ -47,10 +48,11 @@ const CodeSelection = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <p className="text-left text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">Steps to add API</p>
+            <p className="text-left max-w-sm text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">Follow these steps to add and use the API</p>
             <div className='w-full max-w-full'>
               {AccordionData.map((item : AccordionDataItemType,index : number ) => (
                 <CustomAccordionItem
+                doc_link={item.doc_link}
                 accordionContent={item.content}
                 accordionTitle={item.title}
                 isOpen={currentStep === item.index}
