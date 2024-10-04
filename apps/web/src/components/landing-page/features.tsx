@@ -48,7 +48,7 @@ const Features = () => {
           icon: <IconDeviceDesktopAnalytics />,
         },
         {
-          title: "Deployment ready with Docker",
+          title: "Docker-ready for deployment.",
           description:
             "Deploy your application with Docker and Docker Compose.",
           icon: <IconShip />,
@@ -60,7 +60,7 @@ const Features = () => {
           icon: <IconBlockquote />,
         },
         {
-          title: "Templatees from landing page to Dashboard",
+          title: "Templates from landing page to Dashboard",
           description: "Use ready-to-use templatees for your landing page and dashboard.",
           icon: <IconPaint />,
         },

@@ -25,7 +25,7 @@ export function BlogCard(props: BlogCardProps) {
   return (
     <div
       className={cn(
-        "flex flex-col rounded-3xl max-sm:h-full duration-150 ease-out border-transparent border bg-secondary hover:border-neutral-900 hover:bg-primary/20 p-3",
+        "flex flex-col rounded-3xl max-sm:h-full duration-150 ease-out border-transparent border bg-secondary/30 hover:border-neutral-900 hover:bg-secondary/10 p-3",
         props.className,
       )}
     >

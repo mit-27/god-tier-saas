@@ -44,7 +44,7 @@ export const contract = c.router(
         `
     },
     {
-        title: '2) Implmenet the API in the NestJS controller',
+        title: '2) Implement the API in the NestJS controller',
         content: 'Use TsRestHandler to implement the API in the controller and it is also compatible with NestJS decorators.',
         index: 1,
         doc_link: "https://ts-rest.com/docs/react-query/query-client",

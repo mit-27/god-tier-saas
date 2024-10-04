@@ -39,7 +39,7 @@ const BlogPage = () => {
       </div>
 
       <div 
-        className="max-sm:flex max-sm:flex-col max-sm:h-full grid md:grid-cols-2 xl:grid-cols-3 gap-12 mb-24 mx-auto"
+        className="max-sm:flex max-sm:flex-col max-sm:h-full grid md:grid-cols-2 xl:grid-cols-3 gap-12 mx-auto"
         >
             {allPosts.map((post) => (
               <Link href={`${post.url}`} key={post.slug}>
