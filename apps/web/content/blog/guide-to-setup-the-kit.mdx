@@ -44,7 +44,7 @@ To set up and run the project using Docker Compose:
    rm -rf node_modules .pnpm-store ./apps/web/node_modules ./apps/server/node_modules ./packages/shared/node_modules ./apps/server/dist pg_data
    ```
 
-4. Run the following command:
+5. Run the following command:
 
    ```bash
    docker-compose -f docker-compose.dev.yml up
@@ -52,7 +52,7 @@ To set up and run the project using Docker Compose:
 
 This command will build and start all the necessary containers defined in the `docker-compose.dev.yml` file.
 
-### 2. 📦 Using pnpm (Local Development)
+## 2. 📦 Using pnpm (Local Development)
 
 To set up and run the project locally using pnpm:
 
@@ -75,13 +75,19 @@ To set up and run the project locally using pnpm:
    pnpm install
    ```
 
-5. Start the PostgreSQL database using Docker Compose:
+5. Build the shared module
+
+   ```bash
+   pnpm run build:shared 
+   ```
+
+6. Start the PostgreSQL database using Docker Compose:
 
    ```bash
    docker-compose -f docker-compose.postgres.yml up -d
    ```
 
-6. Start the development servers by running:
+7. Start the development servers by running:
 
    ```bash
    pnpm run dev
