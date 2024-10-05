@@ -54,7 +54,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </Link>
           </Button>
         
-          <div className="rounded-lg bg-gray-500/15 border border-border flex flex-col  backdrop-blur-[2px] px-3 py-4 md:p-6 sm:py-8 md:py-12">
+          <div className="rounded-lg sm:overflow-hidden md:overflow-visible bg-gray-500/15 border border-border flex flex-col  backdrop-blur-[2px] px-3 py-4 md:p-6 sm:py-8 md:py-12">
             <Article post={post} />
           </div>
 

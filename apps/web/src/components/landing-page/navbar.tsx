@@ -69,13 +69,14 @@ const Navbar = () => {
             >
             <NavigationMenuPrimitive.Root >
             <NavigationMenuPrimitive.List className="relative flex flex-row gap-4 px-2 py-0.5">
-              {mainPageConfig.map((page) => {
+              {mainPageConfig.map((page,index) => {
                 const { href, title, children } = page;
                 if (!children) {
                   return (
-                    <NavigationMenuItem key={title}>
-                      <Link href={href} legacyBehavior passHref >
+                    <NavigationMenuItem key={`${index}-${title}`}>
+                      <Link href={href} legacyBehavior passHref key={`${index}-${title}`} >
                         <NavigationMenuLink
+                        key={`${index}-${title}`}
                           className={navItemStyles({ isActive: href === pathname })}
                         >
                           {title}
@@ -86,7 +87,7 @@ const Navbar = () => {
                 }
 
                 return (
-                  <NavigationMenuPrimitive.Item key={href}>
+                  <NavigationMenuPrimitive.Item key={`${index}-${title}`}>
                     {/* <WithTrigger trigger={true}> */}
                     <NavigationMenuPrimitive.Trigger asChild>
                         <button className={navItemStyles({ isActive: pathname.startsWith(href) })}>

@@ -53,26 +53,26 @@ export const MdxComponents = {
   h1: (props: any) => (
     <h2
       {...props}
-      className="text-2xl my-2 font-medium leading-8 blog-heading-gradient text-white/90 scroll-mt-20"
+      className="text-2xl font-medium leading-8 text-white/90 scroll-mt-20"
     />
   ),
   h2: (props: JSX.IntrinsicAttributes) => (
     <h2
       {...props}
-      className="text-2xl my-2 font-medium leading-8 blog-heading-gradient text-white/90 scroll-mt-20"
+      className="text-2xl font-medium leading-8 text-white/90 scroll-mt-20"
     />
   ),
   h3: (props: JSX.IntrinsicAttributes) => (
     <h3
       {...props}
-      className="text-xl my-2 font-medium leading-8 blog-heading-gradient text-white/90 scroll-mt-20"
+      className="text-xl font-medium leading-8 text-white/90 scroll-mt-20"
     />
   ),
   h4: (props: JSX.IntrinsicAttributes) => (
-    <h4 {...props} className="text-lg my-2 font-medium leading-8 blog-heading-gradient text-white/90" />
+    <h4 {...props} className="text-lg font-medium leading-8 text-white/90" />
   ),
   p: (props: JSX.IntrinsicAttributes) => (
-    <p {...props} className="text-md font-normal leading-8 text-left text-white/80" />
+    <p {...props} className="text-lg font-normal leading-8 text-left text-white/80" />
   ),
   code: (props: JSX.IntrinsicAttributes) => (
     <code
