@@ -27,16 +27,29 @@ import Link, { type LinkProps } from "next/link";
 import { Icons, type ValidIcon } from "@/components/ui/icons";
 import { SocialIconButton } from "@/components/ui/social-button";
 import { Page } from "@/config/landing-page-nav-items";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const MobileNav = () => {
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
+  const {data : currentSession} = useSession();
+  const router = useRouter();
   const [{ y }] = useWindowScroll();
   const _isScroll = React.useMemo(() => y && y > 0, [y]);
 
   React.useEffect(() => {
     setOpen(false);
   }, []); // remove searchParams if not needed
+
+  const onSignIn = () => {
+    if(currentSession) {
+      router.push('/dashboard')
+    }
+    else {
+      signIn('google', { callbackUrl: '/dashboard' })
+    }
+  }
 
   return (
     <Sheet open={open} onOpenChange={(value : boolean) => setOpen(value)}>
@@ -114,7 +127,7 @@ const MobileNav = () => {
                 </li>
               ))}
             </ul>
-            <Button variant={"shine"}>Log in</Button>
+            <Button onClick={() => onSignIn()} variant={"shine"}>Log in</Button>
           </div>
         </div>
       </SheetContent>

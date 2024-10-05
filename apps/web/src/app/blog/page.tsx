@@ -5,30 +5,30 @@ import Title from "@/components/ui/Title";
 import Link from "next/link";
 
 
-// export const metadata = {
-//   title: "Blog | Unkey",
-//   description: "Latest blog posts and news from the Unkey team.",
-//   openGraph: {
-//     title: "Blog | Unkey",
-//     description: "Latest blog posts and news from the Unkey team.",
-//     url: "https://unkey.com/blog",
-//     siteName: "unkey.com",
-//     images: [
-//       {
-//         url: "https://unkey.com/og.png",
-//         width: 1200,
-//         height: 675,
-//       },
-//     ],
-//   },
-//   twitter: {
-//     title: "Blog | Unkey",
-//     card: "summary_large_image",
-//   },
-//   icons: {
-//     shortcut: "/images/landing/unkey.png",
-//   },
-// };
+export const metadata = {
+  title: "Blog | APP NAME",
+  description: "Description about your application.",
+  openGraph: {
+    title: "Blog | AP NAME",
+    description: "Description about your application.",
+    url: "siteUrl",
+    siteName: "siteName",
+    // images: [
+    //   {
+    //     url: "",
+    //     width: 1200,
+    //     height: 675,
+    //   },
+    // ],
+  },
+  twitter: {
+    title: "Blog | APP NAME",
+    card: "summary_large_image",
+  },
+  icons: {
+    shortcut: "img shorturl",
+  },
+};
 
 const BlogPage = () => {
   return (
