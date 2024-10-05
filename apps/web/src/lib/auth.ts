@@ -30,17 +30,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
             cookies().set("access_token", token);
 
-            const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/login`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
 
-            if (response.status !== 201) {
-                console.error('Failed to login');
+            try {
+                const response = await axios.get(
+                    `${process.env.NEXT_PUBLIC_DOCKER_SERVER_URL}/api/auth/login`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+
+            }
+            catch (error) {
+                console.log(error);
                 return false;
             }
 
@@ -50,6 +53,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     events: {
         signOut: async () => {
             cookies().set("access_token", "");
+        },
+        signIn: async (user) => {
+            console.log('User is:', user);
+            // return true;
         }
     }
 })

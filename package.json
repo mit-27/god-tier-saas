@@ -5,6 +5,8 @@
     "build": "turbo build",
     "dev": "concurrently \"turbo run dev --filter=@template/web\" \"turbo run dev --filter=@template/server\" \"turbo run dev --filter=@template/shared\"",
     "dev:db": "turbo run dev --filter=@template/shared",
+    "build:shared": "turbo run build --filter=@template/shared",
+    "dev:docker": "concurrently \"turbo run dev --filter=@template/server\" \"turbo run dev --filter=@template/shared\"",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },

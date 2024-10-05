@@ -18,14 +18,14 @@ Perfect to build scalable SaaS applications.
 
 
 ## Tech Stack
-- NextJS as the frontend framework
-- NestJS as the backend framework
-- ts-rest for end-to-end type safety
-- Drizzle ORM for database management
-- NextAuth.js for authentication
-- Docker for containerization
-- PostHog for analytics
-- Content Collections for blog and changelog
+- NextJS  - Frontend framework
+- NestJS  - Backend framewor
+- ts-rest - End-to-end type safety
+- Drizzle ORM - Database management
+- NextAuth.js - Authentication
+- Docker - Containerization
+- PostHog - Analytics
+- Content Collections - Blog and changelog
 
 This stack ensures a robust, scalable, and maintainable application with strong typing throughout the entire codebase and secure authentication.
 
@@ -46,10 +46,13 @@ To set up and run the project using Docker Compose:
 3. Copy the example environment files and add appropriate environment variables:
 
    ```bash
+   cp apps/web/.env.example apps/web/.env.local
    cp .env.example .env
+   cp apps/server/.env.example apps/server/.env
+   cp packages/shared/.env.example packages/shared/.env
    ```
 
-   Edit `.env` files and add the necessary environment variables.
+   Edit `.env` files and add the necessary environment variables. Follow instructions in each file and modify the values according to your environment and the way you want to run the app.
 
 4. Remove all node_modules
 
@@ -80,7 +83,7 @@ To set up and run the project locally using pnpm:
    cp packages/shared/.env.example packages/shared/.env
    ```
 
-   Edit both `.env` files and add the necessary environment variables. Here docker-compose.postgres.yml used db credentials from .env file. So make sure the credentails that you used in apps.server/.env and packages.shared/.env are same as root .env file.
+   Edit both `.env` files and add the necessary environment variables. Here docker-compose.postgres.yml used db credentials from .env file. So make sure the credentails that you used in apps.server/.env and packages.shared/.env are same as root .env file. Follow instructions in each file and modify the values according to your environment and the way you want to run the app.
 
 4. Install the dependencies by running:
 

@@ -19,22 +19,6 @@ services:
       - ./pg_data:/var/lib/postgresql/data
     networks:
       - backend
-
-  db:
-    build:
-      context: ./
-      dockerfile: ./packages/shared/Dockerfile.dev
-    environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?schema=public
-    depends_on:
-      postgres:
-        condition: service_healthy
-    restart: unless-stopped
-    volumes:
-      - .:/app
-    networks:
-      - backend
-      
   
   server:
     build:
@@ -43,10 +27,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?schema=public
-      POSTHOG_KEY: ${POSTHOG_KEY}
-      POSTHOG_HOST: ${POSTHOG_HOST}
     depends_on:
       postgres:
         condition: service_healthy
@@ -67,14 +48,6 @@ services:
       dockerfile: ./apps/web/Dockerfile.dev
     ports:
       - 8090:8090
-    environment:
-      NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL}
-      ENV: ${ENV}
-      AUTH_SECRET: ${AUTH_SECRET}
-      AUTH_GOOGLE_ID: ${GOOGLE_CLIENT_ID}
-      AUTH_GOOGLE_SECRET: ${AUTH_GOOGLE_SECRET}
-      NEXT_PUBLIC_POSTHOG_KEY: ${POSTHOG_KEY}
-      NEXT_PUBLIC_POSTHOG_HOST: ${POSTHOG_HOST}
     restart: unless-stopped
     networks:
       - backend
@@ -83,6 +56,7 @@ services:
     depends_on:
       server:
         condition: service_healthy
+
    
 networks:
   backend:

@@ -9,11 +9,10 @@ RUN apk update
 # Set pnpm
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
-
 RUN corepack enable
 
 WORKDIR /app
 RUN pnpm add -g turbo@2.1.2
 
 # Start the Webapp
-CMD cd packages/shared && pnpm install && pnpm run db:push && pnpm run dev
+CMD pnpm install && cd packages/shared && pnpm run db:push && pnpm run dev
