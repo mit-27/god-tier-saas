@@ -9,7 +9,7 @@ import { useSession } from 'next-auth/react';
 
 
 export const api = initTsrReactQuery(contract, {
-    baseUrl: process.env.NEXT_PUBLIC_SERVER_URL!,
+    baseUrl: process.env.NEXT_PUBLIC_CLIENTSIDE_SERVER_URL!,
     baseHeaders: {
         'Authorization': () => `Bearer ${Cookies.get("access_token")}`,
         // 'x-app-source': 'ts-rest',

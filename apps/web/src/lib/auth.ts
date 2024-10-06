@@ -33,7 +33,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
             try {
                 const response = await axios.get(
-                    `${process.env.NEXT_PUBLIC_DOCKER_SERVER_URL}/api/auth/login`,
+                    `${process.env.NEXT_PUBLIC_SERVERSIDE__DOCKER_SERVER_URL}/api/auth/login`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
