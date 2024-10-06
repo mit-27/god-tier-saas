@@ -25,7 +25,6 @@ coverage
 out/
 build
 dist
-drizzle
 
 #DB
 pg_data/
