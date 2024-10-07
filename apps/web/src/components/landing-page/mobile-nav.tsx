@@ -45,8 +45,9 @@ const MobileNav = () => {
   const onSignIn = () => {
 
     toast.error("Available in development mode", {
-      position: "top-center",
+      position: "bottom-right",
       icon: <ExclamationTriangleIcon className="h-6 w-6" />,
+      duration: 1500,
     })
     
   }

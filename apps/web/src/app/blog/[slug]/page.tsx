@@ -2,7 +2,7 @@ import { allPosts } from "content-collections";
 import { getTableOfContents } from 'fumadocs-core/server';
 import { MDXContent } from "@content-collections/mdx/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { format, parseISO } from "date-fns";
+  import { format, parseISO } from "date-fns";
 import { notFound } from "next/navigation";
 import { MDX } from "@/components/blog/mdx-content";
 import { Article } from "@/components/blog/article";
@@ -98,7 +98,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </Link>
           </Button>
         
-          <div className="rounded-lg sm:overflow-hidden md:overflow-visible bg-gray-500/15 border border-border flex flex-col  backdrop-blur-[2px] px-3 py-4 md:p-6 sm:py-8 md:py-12">
+          <div className="rounded-lg sm:overflow-hidden md:overflow-visible z-100 bg-gray-900 border border-border flex flex-col  px-3 py-4 md:p-6 sm:py-8 md:py-12">
             <Article post={post} />
           </div>
 
