@@ -52,4 +52,5 @@ export const ogMetadata: Metadata["openGraph"] = {
 
         }
     ],
+    url: process.env.NEXT_PUBLIC_DOMAIN_URL || "https://godtiersaas.live",
 };
