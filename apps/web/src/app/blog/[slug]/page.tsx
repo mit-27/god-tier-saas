@@ -103,8 +103,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
         </div>
 
-        
-
         <div className="items-start hidden h-full gap-4 pt-8 space-y-4 prose lg:sticky top-24 lg:w-1/4 not-prose lg:mt-12 lg:flex lg:flex-col">
           <p className="text-xl prose text-nowrap text-white font-bold">Contents</p>
           <ul className="relative flex flex-col gap-1 overflow-hidden">

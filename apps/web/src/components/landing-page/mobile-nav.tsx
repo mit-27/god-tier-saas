@@ -61,7 +61,7 @@ const MobileNav = () => {
           className="rounded-full text-sm h-7"
           aria-label="menu"
         >
-          <Menu className="" />
+          <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
       <SheetContent side="top" className={cn("flex flex-col")}>
