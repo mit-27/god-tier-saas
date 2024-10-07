@@ -2,7 +2,6 @@ import { allPosts } from "content-collections";
 import { getTableOfContents } from 'fumadocs-core/server';
 import { MDXContent } from "@content-collections/mdx/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-  import { format, parseISO } from "date-fns";
 import { notFound } from "next/navigation";
 import { MDX } from "@/components/blog/mdx-content";
 import { Article } from "@/components/blog/article";
