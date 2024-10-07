@@ -29,12 +29,12 @@ import { SocialIconButton } from "@/components/ui/social-button";
 import { Page } from "@/config/landing-page-nav-items";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 const MobileNav = () => {
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
-  const {data : currentSession} = useSession();
-  const router = useRouter();
   const [{ y }] = useWindowScroll();
   const _isScroll = React.useMemo(() => y && y > 0, [y]);
 
@@ -43,12 +43,12 @@ const MobileNav = () => {
   }, []); // remove searchParams if not needed
 
   const onSignIn = () => {
-    if(currentSession) {
-      router.push('/dashboard')
-    }
-    else {
-      signIn('google', { callbackUrl: '/dashboard' })
-    }
+
+    toast.error("Available in development mode", {
+      position: "top-center",
+      icon: <ExclamationTriangleIcon className="h-6 w-6" />,
+    })
+    
   }
 
   return (

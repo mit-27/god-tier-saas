@@ -21,6 +21,8 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { signIn, useSession } from "next-auth/react";
 import { on } from "events";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 
 
@@ -44,23 +46,27 @@ const navItemStyles = cva(
 
 const Navbar = () => {
   const pathname = usePathname();
-  const {data : currentSession} = useSession();
-  const router = useRouter();
 
   const onSignIn = () => {
-    if(currentSession) {
-      router.push('/dashboard')
-    }
-    else {
-      signIn('google', { callbackUrl: '/dashboard' })
-    }
+
+    toast.error("Available in development mode", {
+      position: "top-center",
+      icon: <ExclamationTriangleIcon className="h-6 w-6" />,
+    })
+
+    // if(currentSession) {
+    //   router.push('/dashboard')
+    // }
+    // else {
+    //   signIn('google', { callbackUrl: '/dashboard' })
+    // }
   }
 
   return (
     <header className="sticky top-3 z-50 flex items-center justify-between gap-8 rounded-2xl border px-1.5 py-1.5 backdrop-blur-lg md:top-3 mx-auto w-full max-w-4xl">
         <div className="flex items-center gap-6">
             <div className="mx-3 flex items-center gap-3 cursor-pointer">
-                <Link href="/" className="text-[13px] font-bold cursor-pointer text-[#b59b5a]">{'{'}God Tier SaaS{'}'}</Link>
+                <Link href="/" className="text-[13px] font-bold cursor-pointer">God Tier SaaS</Link>
             </div>
             <div
             className={cn(
@@ -140,7 +146,7 @@ const Navbar = () => {
         <div className="block md:hidden sm:flex sm:justify-center sm:items-center">
           <MobileNav />
         </div>
-        <Button onClick={() => onSignIn()} className="h-7 px-3 rounded-sm py-1 text-xs hidden md:block" variant={"secondary"}>{currentSession ? 'Dashboard' : 'Log in'}</Button>
+        <Button onClick={() => onSignIn()} className="h-7 px-3 rounded-sm py-1 text-xs hidden md:block" variant={"secondary"}>{'Log in'}</Button>
       </div>
     </header>
   )

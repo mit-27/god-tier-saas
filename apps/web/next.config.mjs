@@ -5,6 +5,7 @@ const nextConfig = {
     images: {
         domains: [
             "api.microlink.io", // Microlink Image Preview
+            "www.youtube.com"
 
         ],
         remotePatterns: [

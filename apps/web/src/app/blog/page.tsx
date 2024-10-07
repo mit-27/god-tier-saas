@@ -3,30 +3,20 @@ import { MDXContent } from "@content-collections/mdx/react";
 import { BlogCard } from "@/components/blog/blog-card";
 import Title from "@/components/ui/Title";
 import Link from "next/link";
+import { Metadata } from "next";
+import { defaultMetadata, ogMetadata, twitterMetadata } from "../shared-metadata";
 
 
-export const metadata = {
-  title: "Blog | APP NAME",
-  description: "Description about your application.",
+export const metadata: Metadata = {
+  ...defaultMetadata,
+  title: "Blog",
   openGraph: {
-    title: "Blog | AP NAME",
-    description: "Description about your application.",
-    url: "siteUrl",
-    siteName: "siteName",
-    // images: [
-    //   {
-    //     url: "",
-    //     width: 1200,
-    //     height: 675,
-    //   },
-    // ],
+    ...ogMetadata,
+    title: "Blog | God Tier SaaS",
   },
   twitter: {
-    title: "Blog | APP NAME",
-    card: "summary_large_image",
-  },
-  icons: {
-    shortcut: "img shorturl",
+    ...twitterMetadata,
+    title: "Blog | God Tier SaaS",
   },
 };
 

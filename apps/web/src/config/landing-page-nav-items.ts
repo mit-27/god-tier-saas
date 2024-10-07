@@ -43,7 +43,7 @@ export const marketingResourcePagesConfig = [
         icon: "book",
     },
     {
-        href: "/changelog",
+        href: "/",
         title: "Changelog",
         description: "All the latest features, fixes and work to GTS.",
         segment: "changelog",
