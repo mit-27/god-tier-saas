@@ -121,13 +121,13 @@ const MobileNav = () => {
             })}
           </ul>
           <div className="flex justify-between gap-2">
-            <ul className="flex flex-wrap gap-2">
+            {/* <ul className="flex flex-wrap gap-2">
               {socialsConfig.map((props, _i) => (
                 <li key={props.title}>
                   <SocialIconButton {...props} />
                 </li>
               ))}
-            </ul>
+            </ul> */}
             <Button onClick={() => onSignIn()} variant={"shine"}>Log in</Button>
           </div>
         </div>

@@ -64,7 +64,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className="sticky top-3 z-50 flex items-center justify-between gap-8 rounded-2xl border md:px-1.5 py-1.5 backdrop-blur-lg md:top-3 mx-auto sm:w-full max-w-4xl">
+    <header className="sticky top-3 z-50 flex items-center justify-between gap-8 rounded-2xl border px-1.5 py-1.5 backdrop-blur-lg md:top-3 mx-auto w-full max-w-4xl">
         <div className="flex items-center gap-6">
             <div className="mx-3 flex items-center gap-3 cursor-pointer">
                 <Link href="/" className="text-[13px] font-bold cursor-pointer">God Tier SaaS</Link>
@@ -143,8 +143,8 @@ const Navbar = () => {
           </NavigationMenuPrimitive.Root>
             </div>
         </div>
-        <div className="flex items-center justify-end gap-3">
-        <div className="block md:hidden sm:flex sm:justify-center sm:items-center">
+        <div className="flex items-center justify-center gap-3">
+        <div className="block md:hidden">
           <MobileNav />
         </div>
         <Button onClick={() => onSignIn()} className="h-7 px-3 rounded-sm py-1 text-xs hidden md:block" variant={"secondary"}>{'Log in'}</Button>
