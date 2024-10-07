@@ -17,7 +17,7 @@ export function Article({ post }: { post: Post }) {
   };
 
   return (
-        <article className="relative max-w-2xl mx-auto flex flex-col gap-8">
+        <article className="relative max-w-2xl mx-auto w-full flex flex-col gap-8">
             <div className="grid w-full gap-3">
                 <h1 className="mb-5  font-cal text-3xl">{post.title}</h1>
                 <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-border">
@@ -50,6 +50,6 @@ export function Article({ post }: { post: Post }) {
                 </div>
             </div>
             <MDX code={post.mdx} />
-            </article>
+        </article>
   );
 }

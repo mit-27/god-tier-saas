@@ -88,7 +88,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       
       <div className="flex flex-row justify-center gap-5">
 
-        <div className="flex flex-col max-w-3xl lg:w-3/4 ">
+        <div className="flex flex-col w-full max-w-3xl lg:w-3/4 ">
 
           <Button variant="link" className="justify-start" asChild>
             <Link href="/blog" className="group mb-1">
