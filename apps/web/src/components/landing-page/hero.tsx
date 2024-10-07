@@ -76,7 +76,7 @@ const Hero = () => {
                       "w-full"
                     )}
                   >
-                    <GitHubLogoIcon className="h-5 w-5 mx-2" />
+                    <GitHubLogoIcon className="h-5 w-5 mx-3" />
                     <span>View on GitHub</span>
                   </Link>
 
