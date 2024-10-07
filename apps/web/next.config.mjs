@@ -2,6 +2,7 @@ import { withContentCollections } from "@content-collections/next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    transpilePackages: ["@template/shared"],
     images: {
         domains: [
             "api.microlink.io", // Microlink Image Preview
