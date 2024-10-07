@@ -16,7 +16,7 @@ export default function DashboardLayout({
 
     return (
       <Background>
-        <div>
+        <div className="w-full">
           <Navbar/>
           <div className="mt-5 p-5 z-10">
           {children}

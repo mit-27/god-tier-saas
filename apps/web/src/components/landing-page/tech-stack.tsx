@@ -76,7 +76,7 @@
           {/* <Button variant={'ringHover'} className="z-10 mt-10"> </Button> */}
 
 
-          <Ripple mainCircleOpacity={0.15} mainCircleSize={30}/>
+          <Ripple mainCircleOpacity={0.15} mainCircleSize={10}/>
 
       </div>
     )

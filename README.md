@@ -70,7 +70,7 @@ To set up and run the project using Docker Compose:
 
 This command will build and start all the necessary containers defined in the `docker-compose.dev.yml` file.
 
-## 2. 📦 Using pnpm (Local Development)
+### 2. 📦 Using pnpm (Local Development)
 
 To set up and run the project locally using pnpm:
 
@@ -114,3 +114,11 @@ To set up and run the project locally using pnpm:
 This command will concurrently start both the Next.js web application (on port 8090) and the NestJS API server with shared module which manages db and ts-rest router. It uses Turbo to manage the monorepo workspace and run the development scripts for both the web and API projects simultaneously.
 
 Make sure your environment variables are properly configured to connect to the PostgreSQL database started by Docker Compose.
+
+## Support
+
+Support me by giving a star ⭐ on this repository.
+
+## License
+
+This project is licensed under the MIT License.

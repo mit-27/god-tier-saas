@@ -45,7 +45,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
       
       <div className="flex flex-row justify-center gap-5">
 
-        <div className="flex flex-col max-w-3xl lg:w-3/4 ">
+        <div className="flex flex-col w-full max-w-3xl lg:w-3/4 ">
 
           <Button variant="link" className="justify-start" asChild>
             <Link href="/blog" className="group mb-1">
@@ -54,7 +54,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
             </Link>
           </Button>
         
-          <div className="rounded-lg sm:overflow-hidden md:overflow-visible bg-gray-500/15 border border-border flex flex-col  backdrop-blur-[2px] px-3 py-4 md:p-6 sm:py-8 md:py-12">
+          <div className="rounded-lg sm:overflow-hidden md:overflow-visible bg-gray-900 z-100 border border-border flex flex-col  backdrop-blur-[2px] px-3 py-4 md:p-6 sm:py-8 md:py-12">
             <Article post={post} />
           </div>
 
