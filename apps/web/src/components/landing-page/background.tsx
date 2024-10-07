@@ -4,7 +4,7 @@ import Particles from "@/components/ui/particles"
 
 const Background = ({children} : {children: ReactNode}) => {
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative w-full">
         {children}
         <Particles
         className="absolute inset-0 -z-10"

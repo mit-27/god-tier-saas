@@ -18,9 +18,9 @@ const CodeSelection = () => {
   return (
     <div 
     // className="flex flex-col gap-2 lg:flex-row sm:gap-4 mt-2"
-    className='grid lg:grid-cols-2 mt-6 items-center sm:gap-5 md:gap-5 xl:gap-32 grid-cols-1 '
+    className='grid lg:grid-cols-2 mt-6 items-center gap-5 md:gap-5 xl:gap-32 grid-cols-1 '
     >
-          <div className="w-full  max-w-full relative rounded-lg">
+          <div className="w-full m-2  max-w-full relative rounded-lg">
             <p className='absolute top-0 ml-1 border-b border-r rounded-br-md pr-2 p-1 font-medium border-gray-800 left-0 text-[#4FFA7B]/70 '>{AccordionData[currentStep].fileName}</p>
             <SyntaxHighlighter 
             language="tsx" 
@@ -48,7 +48,7 @@ const CodeSelection = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <p className="text-left max-w-sm text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl">Follow these steps to add and use the API</p>
+            <p className="text-left max-w-sm text-xl md:text-xl lg:text-2xl xl:text-4xl">Follow these steps to add and use the API</p>
             <div className='w-full max-w-full'>
               {AccordionData.map((item : AccordionDataItemType,index : number ) => (
                 <CustomAccordionItem
