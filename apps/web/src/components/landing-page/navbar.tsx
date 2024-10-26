@@ -19,7 +19,6 @@ import { Button } from "../ui/button";
 import { cva } from "class-variance-authority";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { signIn, useSession } from "next-auth/react";
-import { on } from "events";
 import { useRouter } from "next/navigation";
 
 

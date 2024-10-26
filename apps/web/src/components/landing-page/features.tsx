@@ -1,4 +1,3 @@
-"use client"
 
 import Feature from "@/components/ui/feature"
 import {

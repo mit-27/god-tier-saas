@@ -23,11 +23,12 @@ export const generateStaticParams = async () =>
     slug: post.slug,
   }));
 
-const page = async ({ params }: { params: { slug: string } }) => {
+const page = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params;
   const post = allPosts.find((post) => post.slug === params.slug);
   // const [tableOfContents,setTableOfContents] = useState<TOCItemType[]>([]);
   let tableOfContents: TOCItemType[] = [];
-  
+
 
   if(post){
     tableOfContents =await getTableOfContents(post.content);
@@ -71,7 +72,6 @@ const page = async ({ params }: { params: { slug: string } }) => {
       </div>
     </div>
   )
-  
 }
 
 export default page
