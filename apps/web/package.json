@@ -37,13 +37,13 @@
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.441.0",
     "mutative": "^1.0.10",
-    "next": "14.2.12",
+    "next": "15.0.1",
     "next-auth": "5.0.0-beta.21",
     "next-themes": "^0.3.0",
     "posthog-js": "^1.165.0",
     "qss": "^3.0.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
     "react-hook-form": "^7.53.0",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.2",
@@ -57,14 +57,18 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8",
-    "eslint-config-next": "14.2.12",
+    "eslint-config-next": "15.0.1",
     "postcss": "^8",
     "react-syntax-highlighter": "^15.5.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   }
 }

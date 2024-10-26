@@ -24,6 +24,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+
+  
   return (
     <html lang="en" content="notranslate" className="scroll-smooth" suppressHydrationWarning>
       <body

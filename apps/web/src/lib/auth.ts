@@ -28,7 +28,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 return false;
             }
 
-            cookies().set("access_token", token);
+            const cookiesStore = await cookies();
+
+            cookiesStore.set("access_token", token);
 
 
             try {
@@ -52,7 +54,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     events: {
         signOut: async () => {
-            cookies().set("access_token", "");
+            const cookiesStore = await cookies();
+            cookiesStore.set("access_token", "");
+            
         },
         signIn: async (user) => {
             console.log('User is:', user);

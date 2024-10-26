@@ -1,7 +1,8 @@
 import { withContentCollections } from "@content-collections/next";
+import type { NextConfig } from 'next';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const nextConfig : NextConfig = {
     images: {
         domains: [
             "api.microlink.io", // Microlink Image Preview
