@@ -5,8 +5,6 @@ import "./globals.css";
 import { Providers } from "@/providers/api-client-provider";
 import { SessionProvider } from "next-auth/react";
 
-// import SessionProvider from "@/providers/SessionProvider";
-
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { auth } from "@/lib/auth";
