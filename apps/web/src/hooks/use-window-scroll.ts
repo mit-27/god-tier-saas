@@ -19,7 +19,7 @@ export function useWindowScroll() {
       window.scrollTo(args[0], args[1]);
     } else {
       throw new Error(
-        "Invalid arguments passed to scrollTo. See here for more info. https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo",
+        "Invalid arguments passed to scrollTo. See here for more info. https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo"
       );
     }
   }, []);

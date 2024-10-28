@@ -1,12 +1,9 @@
-
 import CreatePost from "@/components/posts/create-post";
 import Posts from "@/components/posts/post-list";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 
-
 const PostPage = () => {
-
   return (
     <div className="w-[60%] mx-auto mt-10 min-h-full">
       <div className="flex justify-between items-center mb-4">
@@ -14,10 +11,10 @@ const PostPage = () => {
         <CreatePost />
       </div>
       <Suspense fallback={<Skeleton className="w-full h-full rounded-full" />}>
-        <Posts/>
+        <Posts />
       </Suspense>
     </div>
-  )
-}
-  
-export default PostPage
+  );
+};
+
+export default PostPage;
