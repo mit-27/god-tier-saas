@@ -7,21 +7,18 @@ import Navbar from "@/components/landing-page/navbar";
 import TechStack from "@/components/landing-page/tech-stack";
 
 export default async function Home() {
-
-
   return (
     <Background>
       <div className="w-full">
-        <Navbar/>
+        <Navbar />
         <div className="flex flex-col items-center justify-center gap-8 p-4 md:p-8">
-          <Hero/>
-          <Guide/>
-          <Features/>
-          <TechStack/>
+          <Hero />
+          <Guide />
+          <Features />
+          <TechStack />
         </div>
       </div>
-      <Footer/>
-
-    </Background> 
+      <Footer />
+    </Background>
   );
 }

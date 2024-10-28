@@ -21,7 +21,7 @@ export function Frame({
             "rounded-[24px] p-[6px]": size === "md",
             "rounded-[18px] p-[2px]": size === "sm",
           },
-          className,
+          className
         )}
       >
         <div

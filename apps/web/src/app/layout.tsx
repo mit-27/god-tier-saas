@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google"
-import { cn } from "@/lib/utils"
+import { Inter as FontSans } from "next/font/google";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Providers } from "@/providers/api-client-provider";
-import SessionProvider from "@/providers/SessionProvider";
-import { auth } from "@/lib/auth";
-import { Toaster } from 'sonner';
+import { SessionProvider } from "next-auth/react";
+
+// import SessionProvider from "@/providers/SessionProvider";
+
+import { Toaster } from "sonner";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { auth } from "@/lib/auth";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-})
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,25 +28,15 @@ export default async function RootLayout({
 }>) {
   const session = await auth();
   return (
-    <html lang="en" content="notranslate" className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen font-sans",
-          fontSans.variable
-        )}
-      >
-        <ThemeProvider
-        attribute="class"
-        defaultTheme="dark"
-        >
+    <html lang="en" content="notranslate" suppressHydrationWarning>
+      <body className={cn("min-h-screen font-sans", fontSans.variable)}>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <SessionProvider session={session}>
-            <Providers>
-                {children}
-            </Providers>
+            <Providers>{children}</Providers>
           </SessionProvider>
         </ThemeProvider>
-        
-        <Toaster richColors/>
+
+        <Toaster richColors />
       </body>
     </html>
   );

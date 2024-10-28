@@ -3,7 +3,12 @@ import type { ImageProps } from "next/image";
 import Image from "next/image";
 import type { DetailedHTMLProps, ImgHTMLAttributes, JSX } from "react";
 import { BlogCodeBlock, BlogCodeBlockSingle } from "./blog-code-block";
-import { BlogList, BlogListItem, BlogListNumbered, type BlogListProps } from "./blog-list";
+import {
+  BlogList,
+  BlogListItem,
+  BlogListNumbered,
+  type BlogListProps,
+} from "./blog-list";
 import { BlogQuote, type BlogQuoteProps } from "./blog-quote";
 import { ImageWithBlur } from "./image-with-blur";
 import { Alert } from "@/components/ui/alert";
@@ -25,18 +30,27 @@ export const MdxComponents = {
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+e1bKQAJMQNc5W2CQwAAAABJRU5ErkJggg=="
       />
     ),
-  img: (props: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>) => (
-    <img src={props.src} alt={props.src} />
-  ),
+  img: (
+    props: DetailedHTMLProps<
+      ImgHTMLAttributes<HTMLImageElement>,
+      HTMLImageElement
+    >
+  ) => <img src={props.src} alt={props.src} />,
   Callout: Alert,
   th: (props: JSX.IntrinsicAttributes) => (
-    <th {...props} className="pb-4 text-base font-semibold text-left text-white" />
+    <th
+      {...props}
+      className="pb-4 text-base font-semibold text-left text-white"
+    />
   ),
   tr: (props: JSX.IntrinsicAttributes) => (
     <tr {...props} className="border-b-[.75px] border-white/10 text-left" />
   ),
   td: (props: JSX.IntrinsicAttributes) => (
-    <td {...props} className="py-4 text-base font-normal text-left text-white/70" />
+    <td
+      {...props}
+      className="py-4 text-base font-normal text-left text-white/70"
+    />
   ),
   a: (props: JSX.IntrinsicAttributes) => (
     <a
@@ -72,7 +86,10 @@ export const MdxComponents = {
     <h4 {...props} className="text-lg font-medium leading-8 text-white/90" />
   ),
   p: (props: JSX.IntrinsicAttributes) => (
-    <p {...props} className="text-lg font-normal leading-8 text-left text-white/80" />
+    <p
+      {...props}
+      className="text-lg font-normal leading-8 text-left text-white/80"
+    />
   ),
   code: (props: JSX.IntrinsicAttributes) => (
     <code

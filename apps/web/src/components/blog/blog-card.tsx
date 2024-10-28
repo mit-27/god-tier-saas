@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 // import type { Author } from "@/content/blog/authors";
 import { cn } from "@/lib/utils";
@@ -6,8 +6,8 @@ import { format } from "date-fns";
 // import { Frame } from "../frame";
 // import { ImageWithBlur } from "../image-with-blur";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Frame } from './frame';
-import { ImageWithBlur } from './image-with-blur';
+import { Frame } from "./frame";
+import { ImageWithBlur } from "./image-with-blur";
 
 type BlogCardProps = {
   tags?: string[];
@@ -26,7 +26,7 @@ export function BlogCard(props: BlogCardProps) {
     <div
       className={cn(
         "flex flex-col rounded-3xl max-sm:h-full duration-150 ease-out border-transparent border bg-secondary/30 hover:border-neutral-900 hover:bg-secondary/10 p-3",
-        props.className,
+        props.className
       )}
     >
       <div className="w-full rounded-2xl bg-clip-border">
@@ -52,7 +52,7 @@ export function BlogCard(props: BlogCardProps) {
               </div>
             ))}
           </div> */}
-          <p className='uppercase text-xs font-medium text-white/50 pl-1 pt-2'>
+          <p className="uppercase text-xs font-medium text-white/50 pl-1 pt-2">
             {props.type}
           </p>
           <h2 className="flex justify-start mt-1 text-xl font-medium leading-10 md:text-2xl sm:text-2xl">
@@ -63,7 +63,7 @@ export function BlogCard(props: BlogCardProps) {
             {props.subTitle}
           </p>
           {/* Todo: Needs ability to add multiple authors at some point */}
-          
+
           {/* <div className="flex flex-col flex-wrap justify-end h-full">
             <div className="flex flex-row">
               <Avatar className="w-8 h-8">
@@ -76,8 +76,6 @@ export function BlogCard(props: BlogCardProps) {
               </p>
             </div>
           </div> */}
-
-          
         </div>
       </div>
     </div>

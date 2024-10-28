@@ -33,7 +33,7 @@ import { useRouter } from "next/navigation";
 const MobileNav = () => {
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
-  const {data : currentSession} = useSession();
+  const { data: currentSession } = useSession();
   const router = useRouter();
   const [{ y }] = useWindowScroll();
   const _isScroll = React.useMemo(() => y && y > 0, [y]);
@@ -43,16 +43,15 @@ const MobileNav = () => {
   }, []); // remove searchParams if not needed
 
   const onSignIn = () => {
-    if(currentSession) {
-      router.push('/dashboard')
+    if (currentSession) {
+      router.push("/dashboard");
+    } else {
+      signIn("google", { callbackUrl: "/dashboard" });
     }
-    else {
-      signIn('google', { callbackUrl: '/dashboard' })
-    }
-  }
+  };
 
   return (
-    <Sheet open={open} onOpenChange={(value : boolean) => setOpen(value)}>
+    <Sheet open={open} onOpenChange={(value: boolean) => setOpen(value)}>
       <SheetTrigger asChild>
         <Button
           // size="icon"
@@ -69,7 +68,7 @@ const MobileNav = () => {
         </SheetHeader>
         <div className="flex flex-1 flex-col justify-between gap-8">
           <ul className="grid gap-1">
-            {mainPageConfig.map(({ href, title, icon, children } : Page) => {
+            {mainPageConfig.map(({ href, title, icon, children }: Page) => {
               if (!children) {
                 const isExternal = href.startsWith("http");
                 const _externalProps = isExternal ? { target: "_blank" } : {};
@@ -127,13 +126,15 @@ const MobileNav = () => {
                 </li>
               ))}
             </ul>
-            <Button onClick={() => onSignIn()} variant={"shine"}>Log in</Button>
+            <Button onClick={() => onSignIn()} variant={"shine"}>
+              Log in
+            </Button>
           </div>
         </div>
       </SheetContent>
     </Sheet>
   );
-}
+};
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -147,12 +148,14 @@ const ListItem = React.forwardRef<
         ref={ref}
         className={cn(
           "flex select-none items-center gap-2 space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-          className,
+          className
         )}
         {...props}
       >
         <Icon className="h-4 w-4" />
-        <div className="font-medium text-sm text-[13px] leading-none">{title}</div>
+        <div className="font-medium text-sm text-[13px] leading-none">
+          {title}
+        </div>
       </Link>
     </li>
   );
@@ -171,7 +174,7 @@ const ListItemSingle = React.forwardRef<
         ref={ref}
         className={cn(
           "flex flex-1 items-center justify-between border-b py-4 font-medium transition-all hover:underline",
-          className,
+          className
         )}
         {...props}
       >
@@ -182,5 +185,4 @@ const ListItemSingle = React.forwardRef<
 });
 ListItemSingle.displayName = "ListItemSingle";
 
-
-export default MobileNav
+export default MobileNav;
